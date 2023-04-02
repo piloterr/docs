@@ -1,22 +1,58 @@
 ---
 title: "Authentication"
-description: "Example overview page before API endpoints"
+description: "After completing this quick start guide you'll have generated and tested an authentication token that can be used in all subsequent requests to the Piloterr API."
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et eros iaculis tortor dapibus cursus. Curabitur quis sapien nec tortor dictum gravida.
+## Create an Account
+
+Head over to the [Piloterr Dashboard](https://piloterr.com) and follow the steps to either log in or create an account.
+
+## Get a Token
+
+1. Once inside the dashboard, click **API**.
+
+2. Click **New**.
+
+3. Provide a name for future reference, and any notes perhaps describing a use
+case, then click **Save**.
+
+4. You'll be presented with a new token in text and a button to **copy to clipboard**. Tap the copy button, and paste the token somewhere safe.
+
+<Tip>
+    On this dashboard, you will be able to see the logs and know how many requests you have made.
+</Tip>
+
+## Test
+
+To test our new token, open the Terminal and prepare our environment using the
+following command, replacing `<TOKEN>` with the actual token generated from the
+Piloterr console in the last step:
 
 ```bash
-'Authorization': 'Token <team_token>'
+export PILOTERR_TOKEN="<TOKEN>"
 ```
 
-## API Tokens
+This saves us from copying and pasting the token every time we need to use it, and we can now make a call to the Piloterr Usage service:
 
-Nullam convallis mauris at nunc consectetur, ac imperdiet leo rutrum. Maecenas cursus purus a pellentesque blandit. Pellentesque vitae lacinia libero, non mollis metus.
+```bash
+curl -H "x-api-key: $PILOTERR_TOKEN" https://piloterr.com/api/usage | jq .
+```
 
-Nam id ullamcorper urna, at rutrum enim. [Maecenas vulputate](/introduction) vehicula libero, vitae sodales augue pretium nec. Quisque a magna tempor, semper risus vel, fermentum nunc. Pellentesque fermentum interdum ex, eu convallis massa blandit sed. Aliquam bibendum ipsum vel laoreet auctor.
+Response:
 
-### Permissions
+```json
+{
+    "plan": "API",
+    "remaining": "14823"
+}
+```
 
-Etiam lobortis ut odio ut fermentum. Nunc odio velit, sollicitudin at consectetur id, tristique eget turpis. Aliquam at risus vitae dolor sodales venenatis. In hac habitasse platea dictumst.
+This query allows you to obtain the number of remaining requests.
 
-Aenean consequat diam eget mollis fermentum. [Quisque eu malesuada](/introduction) felis, non dignissim libero.
+<Note>
+    Most examples throughout this documentation will assume you have set the `$PILOTERR_TOKEN` variable.
+</Note>
+
+## Conclusion
+
+You've now managed to authenticate with the Piloterr API using a generated token.

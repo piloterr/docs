@@ -1,0 +1,365 @@
+---
+title: "Company"
+api: "GET https://piloterr.com/api/v2/company"
+description: "Get data about a company with a domain name"
+---
+
+<Note>
+    60 Million Companies 🚀
+    Enrich a company by sending us its domain name. The domain name is a better identifier than the company name because it is unique and less prone to typos.
+</Note>
+
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="gucci.com">
+    A domain name like `gucci.com`, `https://gucci.com` or `www.gucci.com`
+</ParamField>
+
+
+### Response
+
+<ResponseField>
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="name" type="string">
+            The name of the company
+        </ResponseField>
+
+        <ResponseField name="domain" type="string">
+            The company's domain name
+        </ResponseField>
+
+        <ResponseField name="domain_name" type="string">
+            The name portion of the company's domain name
+        </ResponseField>
+
+        <ResponseField name="domain_tld" type="string">
+            The top-level domain (TLD) of the company's domain name
+        </ResponseField>
+
+        <ResponseField name="business_type" type="string">
+            The type of business the company engages in (if available)
+        </ResponseField>
+
+        <ResponseField name="monthly_visitors" type="string">
+            The estimated monthly number of visitors to the company's website
+        </ResponseField>
+
+        <ResponseField name="phone_number" type="string">
+            The company's phone number
+        </ResponseField>
+
+        <ResponseField name="revenue" type="string">
+            The company's estimated annual revenue
+        </ResponseField>
+
+        <ResponseField name="staff_range" type="string">
+            The estimated number of employees at the company
+        </ResponseField>
+
+        <ResponseField name="founded" type="integer">
+            The year the company was founded
+        </ResponseField>
+
+        <ResponseField name="updated_at" type="string">
+            The date and time the information was last updated
+        </ResponseField>
+
+        <ResponseField name="description" type="string">
+            A description of the company
+        </ResponseField>
+
+        <ResponseField name="industries" type="array">
+            An array of industries the company operates in
+        </ResponseField>
+
+        <ResponseField name="social_networks" type="object">
+            An object containing URLs and IDs for the company's social media accounts: `facebook`, `instagram`, `linkedin`, `pinterest`, `twitter`, `youtube`, `linkedin_sales_navigator`, `instagram_id`, `facebook_id`, `twitter_id`, `youtube_id`, `pinterest_id`, `linkedin_id_alpha`, `linkedin_id_numeric`.
+        </ResponseField>
+
+        <ResponseField name="technologies" type="array">
+            An array of technologies used by the company
+        </ResponseField>
+
+        <ResponseField name="technology_categories" type="array">
+            An array of categories describing the technologies used by the company
+        </ResponseField>
+
+        <ResponseField name="location" type="object">
+            An object containing location information for the company
+        </ResponseField>
+
+        <ResponseField name="location.address" type="string">
+            The company's street address
+        </ResponseField>
+
+        <ResponseField name="location.city" type="string">
+            The city where the company is located
+        </ResponseField>
+
+        <ResponseField name="location.lat" type="string">
+            The latitude of the company's location
+        </ResponseField>
+
+        <ResponseField name="location.lng" type="string">
+            The longitude of the company's location
+        </ResponseField>
+
+        <ResponseField name="location.postcode" type="string">
+            The postal code of the company's location
+        </ResponseField>
+
+        <ResponseField name="location.country" type="string">
+            The country where the company is located
+        </ResponseField>
+
+        <ResponseField name="location.country_code" type="string">
+            The ISO 3166-1 alpha-2 country code of the country where the company is located
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash gucci.com
+curl --location --request GET 'https://piloterr.com/api/v2/company?query=gucci.com' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+```bash pennylane.com
+curl --location --request GET 'https://piloterr.com/api/v2/company?query=pennylane.com' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json gucci.com
+{
+    "name": "Gucci",
+    "domain": "gucci.com",
+    "domain_name": "gucci",
+    "domain_tld": "com",
+    "business_type": null,
+    "monthly_visitors": "100m-500m",
+    "phone_number": "+39 055 759221",
+    "revenue": "over-1b",
+    "staff_range": "over-10k",
+    "founded": 1921,
+    "updated_at": "2022-12-25T16:30:51+00:00",
+    "description": "Influential, innovative and progressive, Gucci is reinventing a wholly modern approach to fashion. Under the new vision of creative director Alessandro Michele, the House has redefined luxury for the 21st century, further reinforcing its position as one of the world's most desirable fashion houses. Eclectic, contemporary, romantic-Gucci products represent the pinnacle of Italian craftsmanship and are unsurpassed for their quality and attention to detail. Gucci is part of the Kering Group, a world leader in apparel and accessories that owns a portfolio of powerful luxury and sport and lifestyle brands. For further information about Gucci, visit www.gucci.com",
+    "industries": [
+        "fashion",
+        "jewelry",
+        "leather-goods",
+        "leisure",
+        "luxury-goods",
+        "luxury-goods-and-jewelry",
+        "mens-clothing",
+        "shopping",
+        "womens-clothing"
+    ],
+    "social_networks": {
+        "facebook": "http://www.facebook.com/gucci",
+        "instagram": "https://instagram.com/gucci",
+        "linkedin": "https://www.linkedin.com/company/6585",
+        "pinterest": "https://pinterest.com/gucci",
+        "twitter": "http://twitter.com/gucci",
+        "youtube": "https://youtube.com/user/gucciofficial",
+        "linkedin_sales_navigator": "https://www.linkedin.com/sales/company/6585",
+        "instagram_id": "gucci",
+        "facebook_id": "gucci",
+        "twitter_id": "gucci",
+        "youtube_id": "gucciofficial",
+        "pinterest_id": "gucci",
+        "linkedin_id_alpha": "gucci",
+        "linkedin_id_numeric": 6585
+    },
+    "technologies": [
+        "akamai",
+        "amazon-cloudfront",
+        "amazon-s3",
+        "apache",
+        "facebook-social-plugins",
+        "google-analytics",
+        "google-cloud",
+        "google-tag-manager",
+        "java",
+        "nginx",
+        "riskified",
+        "sap-commerce-cloud"
+    ],
+    "technology_categories": [
+        "accounting-and-finance",
+        "application-development",
+        "application-server",
+        "archive-storage",
+        "block-storage",
+        "cloud-file-storage",
+        "cloud-platform-as-a-service",
+        "commerce",
+        "container-management",
+        "container-networking",
+        "container-orchestration",
+        "container-registry",
+        "containerization",
+        "content-analytics",
+        "content-delivery-network",
+        "content-marketing",
+        "ddos-protection",
+        "development",
+        "devops",
+        "devsecops",
+        "digital-analytics",
+        "e-commerce",
+        "e-commerce-fraud-protection",
+        "e-commerce-platforms",
+        "enterprise-content-delivery-network",
+        "erp",
+        "fraud-detection",
+        "hosting",
+        "hybrid-cloud-storage",
+        "it-infrastructure",
+        "load-balancing",
+        "marketing",
+        "mobile-analytics",
+        "mobile-app-analytics",
+        "mobile-development",
+        "object-storage",
+        "omnichannel-commerce",
+        "order-management",
+        "programming-languages",
+        "security",
+        "social-media-marketing",
+        "storage-management",
+        "tag-management",
+        "virtual-private-cloud",
+        "web-accelerator",
+        "web-application-firewalls",
+        "web-security",
+        "web-server-accelerator"
+    ],
+    "location": {
+        "address": null,
+        "city": "Scandicci",
+        "lat": "43.7567104",
+        "lng": "11.1847619",
+        "postcode": "50018",
+        "country": "Italy",
+        "country_code": "IT"
+    }
+}
+```
+
+```json pennylane.com
+{
+    "name": "Pennylane",
+    "domain": "pennylane.com",
+    "domain_name": "pennylane",
+    "domain_tld": "com",
+    "business_type": null,
+    "monthly_visitors": "under-10k",
+    "phone_number": null,
+    "revenue": null,
+    "staff_range": null,
+    "founded": null,
+    "updated_at": null,
+    "description": "Pennylane est la plateforme tout-en-un de gestion financière et comptabilité des dirigeants d'entreprise et de leurs experts-comptables",
+    "industries": [],
+    "social_networks": {
+        "facebook": "https://facebook.com/pennylane.com",
+        "instagram": "https://instagram.com/pennylane_accounting",
+        "linkedin": "https://linkedin.com/company/pennylaneaccounting",
+        "twitter": "https://twitter.com/pennylane_tech",
+        "instagram_id": "pennylane_accounting",
+        "facebook_id": "pennylane.com",
+        "twitter_id": "pennylane_tech",
+        "linkedin_id_alpha": "pennylaneaccounting",
+        "linkedin_id_numeric": null
+    },
+    "technologies": [
+        "amazon-cloudfront",
+        "amazon-s3",
+        "contentful",
+        "cowboy",
+        "erlang",
+        "google-analytics",
+        "google-tag-manager",
+        "google-workspace",
+        "ruby",
+        "ruby-on-rails"
+    ],
+    "technology_categories": [
+        "application-development",
+        "application-server",
+        "ar-vr",
+        "archive-storage",
+        "business-instant-messaging",
+        "calendar",
+        "cloud-content-collaboration",
+        "content-analytics",
+        "content-delivery-network",
+        "content-management",
+        "content-marketing",
+        "development",
+        "digital-analytics",
+        "document-creation",
+        "email",
+        "enterprise-content-delivery-network",
+        "headless-cms",
+        "hosting",
+        "idea-management",
+        "internal-communications",
+        "it-infrastructure",
+        "marketing",
+        "marketplace-apps",
+        "mobile-analytics",
+        "mobile-app-analytics",
+        "mobile-development",
+        "note-taking-management",
+        "object-storage",
+        "office",
+        "office-suites",
+        "other-web-frameworks",
+        "presentation",
+        "programming-languages",
+        "sap-store",
+        "screen-sharing",
+        "spreadsheets",
+        "storage-management",
+        "survey",
+        "tag-management",
+        "team-collaboration",
+        "video-conferencing",
+        "virtual-reality",
+        "vr-content-management-systems",
+        "web-content-management",
+        "web-frameworks",
+        "webops-platforms",
+        "website-builder"
+    ],
+    "location": {
+        "address": null,
+        "city": null,
+        "lat": null,
+        "lng": null,
+        "postcode": null,
+        "country": null,
+        "country_code": null
+    }
+}
+```
+</ResponseExample>
+
+<ResponseExample>
+
+</ResponseExample>
