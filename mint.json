@@ -53,7 +53,13 @@
     {
       "group": "Database",
       "pages": [
-        "api-reference/database/company"
+        {
+          "group": "Company",
+          "pages": [
+            "api-reference/database/company",
+            "api-reference/database/company_social"
+          ]
+        }
       ]
     }
   ],

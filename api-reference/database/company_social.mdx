@@ -1,17 +1,8 @@
 ---
-title: "Company"
-api: "GET https://piloterr.com/api/v2/company"
-description: "Get data about a company with a domain name"
+title: "Company Social"
+api: "GET https://piloterr.com/api/v2/company/social"
+description: "Get a company's information by social media account"
 ---
-
-<Note>
-    60 Million Companies 🚀
-    Enrich a company by sending us its domain name. The domain name is a better identifier than the company name because it is unique and less prone to typos.
-</Note>
-
-<Card title="Search by social network" icon="square-share-nodes" href="/api-reference/database/company_social">
-    You can also search a company domain by social network.
-</Card>
 
 ### Header
 
@@ -21,8 +12,8 @@ description: "Get data about a company with a domain name"
 
 ### Parameters
 
-<ParamField query="query" type="string" optional={false} placeholder="gucci.com">
-    A domain name like `gucci.com`, `https://gucci.com` or `www.gucci.com`
+<ParamField query="query" type="string" optional={false} placeholder="http://twitter.com/gucci">
+    A social network URL or ID from `facebook`, `instagram`, `linkedin`, `pinterest`, `twitter`, `youtube`.
 </ParamField>
 
 
@@ -132,16 +123,11 @@ description: "Get data about a company with a domain name"
 <RequestExample>
 
 ```bash gucci.com
-curl --location --request GET 'https://piloterr.com/api/v2/company?query=gucci.com' \
+curl --location --request GET 'https://piloterr.com/api/v2/company/social?query=http://twitter.com/gucci' \
 --header 'Content-Type: application/json' \
 --header 'x-api-key: <token>' \
 ```
 
-```bash pennylane.com
-curl --location --request GET 'https://piloterr.com/api/v2/company?query=pennylane.com' \
---header 'Content-Type: application/json' \
---header 'x-api-key: <token>' \
-```
 
 </RequestExample>
 
@@ -262,103 +248,5 @@ curl --location --request GET 'https://piloterr.com/api/v2/company?query=pennyla
     }
 }
 ```
-
-```json pennylane.com
-{
-    "name": "Pennylane",
-    "domain": "pennylane.com",
-    "domain_name": "pennylane",
-    "domain_tld": "com",
-    "business_type": null,
-    "monthly_visitors": "under-10k",
-    "phone_number": null,
-    "revenue": null,
-    "staff_range": null,
-    "founded": null,
-    "updated_at": null,
-    "description": "Pennylane est la plateforme tout-en-un de gestion financière et comptabilité des dirigeants d'entreprise et de leurs experts-comptables",
-    "industries": [],
-    "social_networks": {
-        "facebook": "https://facebook.com/pennylane.com",
-        "instagram": "https://instagram.com/pennylane_accounting",
-        "linkedin": "https://linkedin.com/company/pennylaneaccounting",
-        "twitter": "https://twitter.com/pennylane_tech",
-        "instagram_id": "pennylane_accounting",
-        "facebook_id": "pennylane.com",
-        "twitter_id": "pennylane_tech",
-        "linkedin_id_alpha": "pennylaneaccounting",
-        "linkedin_id_numeric": null
-    },
-    "technologies": [
-        "amazon-cloudfront",
-        "amazon-s3",
-        "contentful",
-        "cowboy",
-        "erlang",
-        "google-analytics",
-        "google-tag-manager",
-        "google-workspace",
-        "ruby",
-        "ruby-on-rails"
-    ],
-    "technology_categories": [
-        "application-development",
-        "application-server",
-        "ar-vr",
-        "archive-storage",
-        "business-instant-messaging",
-        "calendar",
-        "cloud-content-collaboration",
-        "content-analytics",
-        "content-delivery-network",
-        "content-management",
-        "content-marketing",
-        "development",
-        "digital-analytics",
-        "document-creation",
-        "email",
-        "enterprise-content-delivery-network",
-        "headless-cms",
-        "hosting",
-        "idea-management",
-        "internal-communications",
-        "it-infrastructure",
-        "marketing",
-        "marketplace-apps",
-        "mobile-analytics",
-        "mobile-app-analytics",
-        "mobile-development",
-        "note-taking-management",
-        "object-storage",
-        "office",
-        "office-suites",
-        "other-web-frameworks",
-        "presentation",
-        "programming-languages",
-        "sap-store",
-        "screen-sharing",
-        "spreadsheets",
-        "storage-management",
-        "survey",
-        "tag-management",
-        "team-collaboration",
-        "video-conferencing",
-        "virtual-reality",
-        "vr-content-management-systems",
-        "web-content-management",
-        "web-frameworks",
-        "webops-platforms",
-        "website-builder"
-    ],
-    "location": {
-        "address": null,
-        "city": null,
-        "lat": null,
-        "lng": null,
-        "postcode": null,
-        "country": null,
-        "country_code": null
-    }
-}
-```
 </ResponseExample>
+
