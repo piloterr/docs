@@ -5,6 +5,7 @@
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
   },
+  "versions": ["v2"],
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#0069ED",
@@ -13,8 +14,8 @@
   },
   "topbarLinks": [
     {
-      "name": "Documentation",
-      "url": "https://mintlify.com/docs"
+      "name": "Status",
+      "url": "https://status.piloterr.com"
     }
   ],
   "topbarCtaButton": {
@@ -25,7 +26,8 @@
     {
       "name": "API Reference",
       "icon": "rectangle-terminal",
-      "url": "api-reference"
+      "url": "v2/api-reference",
+      "version": "v2"
     },
     {
       "name": "Changelog",
@@ -41,13 +43,13 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features", "pricing"]
+      "pages": ["introduction", "features", "pricing", "monitoring-tests"]
     },
     {
       "group": "API Documentation",
       "pages": [
-        "api-reference/authentication",
-        "api-reference/usage"
+        "v2/api-reference/authentication",
+        "v2/api-reference/usage"
       ]
     },
     {
@@ -56,10 +58,21 @@
         {
           "group": "Company",
           "pages": [
-            "api-reference/database/company",
-            "api-reference/database/company_social",
-            "api-reference/database/company_suggest",
-            "api-reference/database/company_email_pattern"
+            "v2/api-reference/database/company",
+            "v2/api-reference/database/company_social",
+            "v2/api-reference/database/company_suggest",
+            "v2/api-reference/database/company_email_pattern"
+          ]
+        }
+      ]
+    },
+    {
+      "group": "Linkedin",
+      "pages": [
+        {
+          "group": "Company",
+          "pages": [
+            "v2/api-reference/linkedin/company/info"
           ]
         }
       ]
