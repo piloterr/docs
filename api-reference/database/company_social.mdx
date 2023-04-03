@@ -1,7 +1,7 @@
 ---
 title: "Company Social"
 api: "GET https://piloterr.com/api/v2/company/social"
-description: "Get a company's information by social media account"
+description: "Get data about a company with a social network URL"
 ---
 
 ### Header
@@ -19,7 +19,7 @@ description: "Get a company's information by social media account"
 
 ### Response
 
-<ResponseField>
+<ResponseField name="company" type="Company Object">
     <Expandable title="properties" defaultOpen={true}>
         <ResponseField name="name" type="string">
             The name of the company
@@ -127,7 +127,6 @@ curl --location --request GET 'https://piloterr.com/api/v2/company/social?query=
 --header 'Content-Type: application/json' \
 --header 'x-api-key: <token>' \
 ```
-
 
 </RequestExample>
 

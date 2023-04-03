@@ -1,0 +1,70 @@
+---
+title: "Company Suggest"
+api: "GET https://piloterr.com/api/v2/company/suggest"
+description: "Get a list of companies that match a domain name"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="gucci">
+    A domain name like `gucci`, `gucci.com`...
+</ParamField>
+
+
+### Response
+
+<ResponseField name="company" type="Company List">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="name" type="string">
+            The name of the company
+        </ResponseField>
+
+        <ResponseField name="domain" type="string">
+            The company's domain name
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash gucci
+curl --location --request GET 'https://piloterr.com/api/v2/company/suggest?query=gucci' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json gucci
+[
+    {
+        "name": "Gucci",
+        "domain": "gucci.com"
+    },
+    {
+        "name": "ぐっち夫婦@料理家",
+        "domain": "gucci-fuufu.com"
+    },
+    {
+        "name": "Gucci And Glam//Amie Bartley",
+        "domain": "gucciandglam.com"
+    },
+    {
+        "name": "GUCCI POTTER",
+        "domain": "guccipotter.com"
+    },
+    {
+        "name": "Gucci Cucci",
+        "domain": "guccixxx.com"
+    }
+]
+```
+</ResponseExample>

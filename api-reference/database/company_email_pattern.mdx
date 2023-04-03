@@ -1,0 +1,78 @@
+---
+title: "Company Email Pattern"
+api: "GET https://piloterr.com/api/v2/company/email_pattern"
+description: "Get the email pattern for a company"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="gucci.com">
+    A domain name like `gucci.com`, `https://gucci.com` or `www.gucci.com`
+</ParamField>
+
+
+### Response
+
+<ResponseField name="company" type="Email Pattern List">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="pattern" type="string">
+            The pattern of the email address
+        </ResponseField>
+
+        <ResponseField name="percentage" type="string">
+            Percentage of the emails that match the pattern
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash gucci.com
+curl --location --request GET 'https://piloterr.com/api/v2/company/email_pattern?query=gucci.com' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json gucci.com
+[
+    {
+        "pattern": "[F].[L]",
+        "percentage": 99.131
+    },
+    {
+        "pattern": "[F]",
+        "percentage": 0.3032
+    },
+    {
+        "pattern": "[F1][L]",
+        "percentage": 0.3032
+    },
+    {
+        "pattern": "[F1].[L]",
+        "percentage": 0.1819
+    },
+    {
+        "pattern": "[F].[L1]",
+        "percentage": 0.0404
+    },
+    {
+        "pattern": "[L]",
+        "percentage": 0.0202
+    },
+    {
+        "pattern": "[F1]-[L1]",
+        "percentage": 0.0202
+    }
+]
+```
+</ResponseExample>

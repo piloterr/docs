@@ -57,7 +57,9 @@
           "group": "Company",
           "pages": [
             "api-reference/database/company",
-            "api-reference/database/company_social"
+            "api-reference/database/company_social",
+            "api-reference/database/company_suggest",
+            "api-reference/database/company_email_pattern"
           ]
         }
       ]
