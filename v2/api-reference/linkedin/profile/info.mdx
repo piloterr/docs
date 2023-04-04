@@ -1,0 +1,89 @@
+---
+title: "LinkedIn Profile Info"
+api: "GET https://piloterr.com/api/v2/linkedin/profile/info"
+description: "Get the public information of a LinkedIn profile."
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="ACoAABt6Ew4Bq_m-hahX5ocf321ZyqZy7FpQlig">
+    Internal Linkedin ID or username of the target profile like `ACoAABt6Ew4Bq_m-hahX5ocf321ZyqZy7FpQlig`, `https://www.linkedin.com/in/emmanuelmacron` or `emmanuelmacron`
+</ParamField>
+
+### Response
+
+<ResponseField name="profile" type="Profile Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            The unique identifier (urn) of the profile
+        </ResponseField>
+        <ResponseField name="username" type="string">
+            The username of the profile
+        </ResponseField>
+        <ResponseField name="full_name" type="string">
+            The full name of the profile
+        </ResponseField>
+        <ResponseField name="first_name" type="string">
+            The first name of the profile
+        </ResponseField>
+        <ResponseField name="industry" type="string">
+            The industry of the profile
+        </ResponseField>
+        <ResponseField name="last_name" type="string">
+            The last name of the profile
+        </ResponseField>
+        <ResponseField name="summary" type="string">
+            A summary of the profile's experience and skills
+        </ResponseField>
+        <ResponseField name="headline" type="string">
+            The headline of the profile
+        </ResponseField>
+        <ResponseField name="country_name" type="string">
+            The country name of the profile
+        </ResponseField>
+        <ResponseField name="location_name" type="string">
+            The location name of the profile
+        </ResponseField>
+        <ResponseField name="background_url" type="string">
+            The URL of the background image of the profile
+        </ResponseField>
+        <ResponseField name="photo_url" type="string">
+            The URL of the profile photo
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash profile
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/profile/info?query=emmanuelmacron' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json profile
+{
+    "id": "ACoAABt6Ew4Bq_m-hahX5ocf321ZyqZy7FpQlig",
+    "username": "emmanuelmacron",
+    "full_name": "Emmanuel Macron",
+    "first_name": "Emmanuel",
+    "industry": "Government Administration",
+    "last_name": "Macron",
+    "summary": null,
+    "headline": "President of the French Republic.",
+    "country_name": "France",
+    "location_name": "Paris, Île-de-France",
+    "background_url": "https://media.licdn.com/dms/image/D4E16AQHoI5rDUbA7Ww/profile-displaybackgroundimage-shrink_350_1400/0/1678266289706?e=1686182400&v=beta&t=gKI-AGAgYClA5mKrzcemM5HZMMt5RK6RmXoZBGXkr1Y",
+    "photo_url": "https://media.licdn.com/dms/image/D4E03AQGbTdwOdlURyg/profile-displayphoto-shrink_400_400/0/1678377684180?e=1686182400&v=beta&t=qdsGAkjHfEq5DWSHh8xKhhpsxBqVKbbB7AtmPvMAKjU"
+}
+```
+</ResponseExample>
