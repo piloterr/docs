@@ -1,0 +1,69 @@
+---
+title: "LinkedIn Company Employee"
+api: "GET https://piloterr.com/api/v2/linkedin/company/employee_count"
+description: "Get the number of employees of a company on LinkedIn"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="integer" optional={false} placeholder="2734">
+    Internal Linkedin ID of the target company like `2734`
+</ParamField>
+
+<ParamField query="status" type="string" optional={true} placeholder="past">
+    Possible values are `current` or `past`. Default is `current`.
+
+    <Frame caption="Filter if the employee is currently working at the company or not.">
+        <img
+            alt={`LinkedIn Company Employee Count`}
+            src="v2/api-reference/linkedin/company/employee_count.png"
+        />
+    </Frame>
+</ParamField>
+
+### Response
+
+<ResponseField name="company" type="Company Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="result" type="integer">
+            The number of employees of the company
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash current 1337
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/company/employee_count?query=1337' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+```bash current 1337
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/company/employee_count?query=1337&status=past' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json current 1337
+{
+    "result": 25878
+}
+```
+
+```json past 1337
+{
+    "result": 28635
+}
+```
+</ResponseExample>

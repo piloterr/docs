@@ -72,7 +72,8 @@
         {
           "group": "Company",
           "pages": [
-            "v2/api-reference/linkedin/company/info"
+            "v2/api-reference/linkedin/company/info",
+            "v2/api-reference/linkedin/company/employee_count"
           ]
         }
       ]
