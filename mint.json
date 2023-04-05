@@ -43,7 +43,7 @@
   "navigation": [
     {
       "group": "Home",
-      "pages": ["introduction", "features", "monitoring-tests", "pricing"]
+      "pages": ["introduction", "monitoring-tests", "faq", "pricing"]
     },
     {
       "group": "API Documentation",
