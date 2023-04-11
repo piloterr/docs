@@ -81,6 +81,12 @@
             "pages": [
                 "v2/api-reference/linkedin/profile/info"
             ]
+        },
+        {
+          "group": "Post",
+          "pages": [
+            "v2/api-reference/linkedin/post/info"
+          ]
         }
       ]
     }

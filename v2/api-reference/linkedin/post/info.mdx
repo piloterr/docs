@@ -1,0 +1,125 @@
+---
+title: "LinkedIn Post Info"
+api: "GET https://piloterr.com/api/v2/linkedin/post/info"
+description: "Get information about a LinkedIn post"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="7049394404154904577">
+    Internal Linkedin ID or post url `7049394404154904577`, or `https://www.linkedin.com/feed/update/urn:li:activity:7049394404154904577`
+</ParamField>
+
+### Response
+
+<ResponseField name="post" type="Post Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            The unique identifier (urn) of the post.
+        </ResponseField>
+        <ResponseField name="url" type="string">
+            The URL of the post.
+        </ResponseField>
+        <ResponseField name="type_post" type="string">
+            The type of the post : article, document, image, video...
+        </ResponseField>
+        <ResponseField name="text" type="string">
+            The text content of the post.
+        </ResponseField>
+        <ResponseField name="text_lang" type="string">
+            The language of the text content of the post.
+        </ResponseField>
+        <ResponseField name="hashtags" type="array">
+            An array of hashtags used in the post.
+        </ResponseField>
+        <ResponseField name="links" type="array">
+            An array of links included in the post.
+        </ResponseField>
+        <ResponseField name="image_url" type="string">
+            The URL of the image included in the post.
+        </ResponseField>
+        <ResponseField name="emojis" type="array">
+            An array of emojis used in the post.
+        </ResponseField>
+        <ResponseField name="mentioned_profiles" type="array">
+            An array of profiles mentioned in the post.
+        </ResponseField>
+        <ResponseField name="article" type="object">
+            An object containing information about the article associated with the post.
+        </ResponseField>
+        <ResponseField name="document" type="object">
+            An object containing information about the document associated with the post.
+        </ResponseField>
+        <ResponseField name="like_count" type="number">
+            The number of likes on the post.
+        </ResponseField>
+        <ResponseField name="comments_count" type="number">
+            The number of comments on the post.
+        </ResponseField>
+        <ResponseField name="shares_count" type="number">
+            The number of shares of the post.
+        </ResponseField>
+        <ResponseField name="views_count" type="number">
+            The number of views of the post.
+        </ResponseField>
+        <ResponseField name="total_engagement" type="number">
+            The total number of engagements (likes, comments, shares) on the post.
+        </ResponseField>
+        <ResponseField name="author" type="object">
+            An object containing information about the author of the post.
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash post
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/post/info?query=7049394404154904577' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json post
+{
+    "id": "7049394404154904577",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7049394404154904577",
+    "type_post": "article",
+    "text": "During Families Month and beyond, at Microsoft we recognize the impact and importance of families. By gaining a deeper understanding of how family influences our experiences, and challenging the status quo that our personal lives should be left out of work, we can unleash our unique potential for innovation and work together toward a more inclusive future.\n\nThe importance of family is universal and global. Families comes in many different expressions, and they provide many of us with the support needed to be successful inside and outside of the workplace. Throughout #FamiliesMonth and the rest of the year, explore employee stories of creativity and community.\n#InclusionIsInnovation",
+    "text_lang": "en",
+    "hashtags": [
+        "FamiliesMonth",
+        "InclusionIsInnovation"
+    ],
+    "links": null,
+    "image_url": "https://media.licdn.com/dms/image/sync/D4D27AQFZNJO1iRbcmw/articleshare-shrink_800/0/1681218915327?e=1681858800&v=beta&t=4LPNbi1ST71LYnMn4yKXyQFjs2rf5IfRrCaqs9G6lIY",
+    "emojis": null,
+    "mentioned_profiles": [
+        "microsoft"
+    ],
+    "article": {
+        "title": "Family - Microsoft Life Inclusion",
+        "url": "https://aka.ms/InclusionIsInnovation/Families"
+    },
+    "document": null,
+    "like_count": 610,
+    "comments_count": 34,
+    "shares_count": 25,
+    "views_count": 0,
+    "total_engagement": 669,
+    "author": {
+        "id": "ACoAAAHXloIBOZhiiqeksBibuT9xUZgQA7enq7M",
+        "profile_type": "profile",
+        "full_name": "Lind"
+    }
+}
+```
+</ResponseExample>
