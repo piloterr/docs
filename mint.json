@@ -89,6 +89,22 @@
           ]
         }
       ]
+    },
+    {
+      "group": "StockX",
+      "pages": [
+        {
+          "group": "Product",
+          "pages": [
+            "v2/api-reference/stockx/search",
+            "v2/api-reference/stockx/product",
+            "v2/api-reference/stockx/product_360",
+            "v2/api-reference/stockx/product_activity",
+            "v2/api-reference/stockx/product_graph"
+          ]
+        },
+        "v2/api-reference/stockx/trends"
+      ]
     }
   ],
   "footerSocials": {
