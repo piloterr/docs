@@ -53,6 +53,12 @@
       ]
     },
     {
+      "group": "Website",
+      "pages": [
+        "v2/api-reference/website/crawler_html"
+      ]
+    },
+    {
       "group": "Database",
       "pages": [
         {
