@@ -1,0 +1,231 @@
+---
+title: "Technology"
+api: "GET https://piloterr.com/api/v2/website/technology"
+description: "Get website technology (CMS, Framework, Analytics, CDN, Hosting, etc.)"
+---
+
+<Warning>
+    Response time is 10-15 seconds.
+</Warning>
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://example.com">
+    A website url with http(s) protocol
+</ParamField>
+
+### Response
+
+<RequestExample>
+
+```bash leroymerlin.fr
+curl --location --request GET 'https://piloterr.com/api/v2/website/technology?query=https://www.leroymerlin.fr' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json leroymerlin.fr
+{
+    "urls": {
+        "https://www.leroymerlin.fr/": {
+            "status": 200
+        }
+    },
+    "technologies": [
+    {
+        "slug": "cart-functionality",
+        "name": "Cart Functionality",
+        "description": "Websites that have a shopping cart or checkout page, either using a known ecommerce platform or a custom solution.",
+        "confidence": 100,
+        "version": null,
+        "icon": "Cart-generic.svg",
+        "website": "https://www.wappalyzer.com/technologies/ecommerce/cart-functionality",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 6,
+            "slug": "ecommerce",
+            "name": "Ecommerce"
+        }
+        ]
+    },
+    {
+        "slug": "datadog",
+        "name": "Datadog",
+        "description": "Datadog is a SaaS-based monitoring and analytics platform for large-scale applications and infrastructure.",
+        "confidence": 99,
+        "version": null,
+        "icon": "Datadog.svg",
+        "website": "https://www.datadoghq.com",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 78,
+            "slug": "rum",
+            "name": "RUM"
+        },
+        {
+            "id": 10,
+            "slug": "analytics",
+            "name": "Analytics"
+        }
+        ]
+    },
+    {
+        "slug": "commanders-act-tagcommander",
+        "name": "Commanders Act TagCommander",
+        "description": "Commanders Act TagCommander is a European company providing a tag management product designed to handle website tags.",
+        "confidence": 100,
+        "version": null,
+        "icon": "Commanders Act.svg",
+        "website": "https://www.commandersact.com/en/solutions/tagcommander/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 42,
+            "slug": "tag-managers",
+            "name": "Tag managers"
+        }
+        ]
+    },
+    {
+        "slug": "datadome",
+        "name": "Datadome",
+        "confidence": 100,
+        "version": null,
+        "icon": "datadome.png",
+        "website": "https://datadome.co/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 16,
+            "slug": "security",
+            "name": "Security"
+        }
+        ]
+    },
+    {
+        "slug": "mailjet",
+        "name": "Mailjet",
+        "description": "Mailjet is an email delivery service for marketing and developer teams.",
+        "confidence": 100,
+        "version": null,
+        "icon": "Mailjet.svg",
+        "website": "https://www.mailjet.com/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 75,
+            "slug": "email",
+            "name": "Email"
+        }
+        ]
+    },
+    {
+        "slug": "mailchimp",
+        "name": "MailChimp",
+        "description": "Mailchimp is a marketing automation platform and email marketing service.",
+        "confidence": 100,
+        "version": null,
+        "icon": "mailchimp.svg",
+        "website": "http://mailchimp.com",
+        "cpe": "cpe:2.3:a:thinkshout:mailchimp:*:*:*:*:*:*:*:*",
+        "categories": [
+        {
+            "id": 32,
+            "slug": "marketing-automation",
+            "name": "Marketing automation"
+        },
+        {
+            "id": 75,
+            "slug": "email",
+            "name": "Email"
+        }
+        ]
+    },
+    {
+        "slug": "google-workspace",
+        "name": "Google Workspace",
+        "description": "Google Workspace, formerly G Suite, is a collection of cloud computing, productivity and collaboration tools.",
+        "confidence": 100,
+        "version": null,
+        "icon": "Google Workspace.svg",
+        "website": "https://workspace.google.com/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 30,
+            "slug": "webmail",
+            "name": "Webmail"
+        },
+        {
+            "id": 75,
+            "slug": "email",
+            "name": "Email"
+        }
+        ]
+    },
+    {
+        "slug": "webpack",
+        "name": "webpack",
+        "description": "Webpack is an open-source JavaScript module bundler.",
+        "confidence": 50,
+        "version": null,
+        "icon": "webpack.svg",
+        "website": "https://webpack.js.org/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 19,
+            "slug": "miscellaneous",
+            "name": "Miscellaneous"
+        }
+        ]
+    },
+    {
+        "slug": "module-federation",
+        "name": "Module Federation",
+        "description": "Module Federation is a webpack technology for dynamically loading parts of other independently deployed builds.",
+        "confidence": 50,
+        "version": null,
+        "icon": "Module Federation.png",
+        "website": "https://webpack.js.org/concepts/module-federation/",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 19,
+            "slug": "miscellaneous",
+            "name": "Miscellaneous"
+        }
+        ]
+    },
+    {
+        "slug": "docusign",
+        "name": "DocuSign",
+        "description": "DocuSign allows organisations to manage electronic agreements.",
+        "confidence": 100,
+        "version": null,
+        "icon": "DocuSign.svg",
+        "website": "https://www.docusign.com",
+        "cpe": null,
+        "categories": [
+        {
+            "id": 19,
+            "slug": "miscellaneous",
+            "name": "Miscellaneous"
+        }
+        ]
+    }
+    ]
+}
+```
+</ResponseExample>
