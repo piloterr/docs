@@ -1,0 +1,291 @@
+---
+title: "LinkedIn Job Search"
+api: "GET https://piloterr.com/api/v2/linkedin/job/search"
+description: "Get job search results from LinkedIn"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="33246798">
+    Internal Linkedin ID or post url `33246798`, or `https://www.linkedin.com/company/33246798`
+</ParamField>
+
+<ParamField query="page" type="number" optional={true} placeholder="1">
+    Page number to return. Default is `1`.
+</ParamField>
+
+### Response
+
+<ResponseField name="jobs" type="List Jobs">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="company_name" type="string">
+            The name of the company offering the job.
+        </ResponseField>
+        <ResponseField name="company_url" type="string">
+            The URL of the LinkedIn page for the company.
+        </ResponseField>
+        <ResponseField name="job_title" type="string">
+            The title of the job being offered.
+        </ResponseField>
+        <ResponseField name="job_id" type="integer">
+            The unique identifier for the job posting.
+        </ResponseField>
+        <ResponseField name="job_url" type="string">
+            The URL of the job posting on LinkedIn.
+        </ResponseField>
+        <ResponseField name="list_date" type="string">
+            The date on which the job posting was listed.
+        </ResponseField>
+        <ResponseField name="location" type="string">
+            The location of the job (e.g., city and country).
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash tiktok
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/job/search?query=https://www.linkedin.com/company/33246798' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json tiktok
+[
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Event Coordinator, Global Brand Studio",
+        "job_id": 3484616454,
+        "job_url": "https://www.linkedin.com/jobs/view/3484616454",
+        "list_date": "2023-03-29",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Event Coordinator, Commerce",
+        "job_id": 3493523907,
+        "job_url": "https://www.linkedin.com/jobs/view/3493523907",
+        "list_date": "2023-04-05",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Client and Internal Events Coordinator, Global Brand Studio",
+        "job_id": 3485756306,
+        "job_url": "https://www.linkedin.com/jobs/view/3485756306",
+        "list_date": "2023-03-31",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Learning Operations Specialist, Academy, Global Commerce US",
+        "job_id": 3478710734,
+        "job_url": "https://www.linkedin.com/jobs/view/3478710734",
+        "list_date": "2023-03-29",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Global Communications Operations Coordinator",
+        "job_id": 3462894947,
+        "job_url": "https://www.linkedin.com/jobs/view/3462894947",
+        "list_date": "2023-03-29",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Talent Acquisition Partner - TikTok - Mountain View",
+        "job_id": 3535703119,
+        "job_url": "https://www.linkedin.com/jobs/view/3535703119",
+        "list_date": "2023-04-10",
+        "location": "Mountain View, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "TikTok Commerce - Category Manager - Beauty",
+        "job_id": 3563370431,
+        "job_url": "https://www.linkedin.com/jobs/view/3563370431",
+        "list_date": "2023-04-10",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Learning Operations Specialist, Academy, Global Commerce US",
+        "job_id": 3478712189,
+        "job_url": "https://www.linkedin.com/jobs/view/3478712189",
+        "list_date": "2023-03-29",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "TikTok E-Commerce - Category Manager - Fashion",
+        "job_id": 3563369634,
+        "job_url": "https://www.linkedin.com/jobs/view/3563369634",
+        "list_date": "2023-04-10",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Learning and Enablement Partner, Academy, Global Commerce US",
+        "job_id": 3478713065,
+        "job_url": "https://www.linkedin.com/jobs/view/3478713065",
+        "list_date": "2023-03-29",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Strategy & Analytics Associate, Commerce",
+        "job_id": 3340474312,
+        "job_url": "https://www.linkedin.com/jobs/view/3340474312",
+        "list_date": "2023-03-29",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Data Analyst - Tiktok Ads",
+        "job_id": 3563367833,
+        "job_url": "https://www.linkedin.com/jobs/view/3563367833",
+        "list_date": "2023-04-10",
+        "location": "Seattle, WA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "TikTok Commerce - Category Manager - Beauty",
+        "job_id": 3558982673,
+        "job_url": "https://www.linkedin.com/jobs/view/3558982673",
+        "list_date": "2023-04-05",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Data Analyst - Tiktok Ads",
+        "job_id": 3488480098,
+        "job_url": "https://www.linkedin.com/jobs/view/3488480098",
+        "list_date": "2023-04-02",
+        "location": "Mountain View, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Chief of Staff",
+        "job_id": 3525039234,
+        "job_url": "https://www.linkedin.com/jobs/view/3525039234",
+        "list_date": "2023-04-03",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Talent Acquisition Partner - E-commerce - San Jose",
+        "job_id": 3436061563,
+        "job_url": "https://www.linkedin.com/jobs/view/3436061563",
+        "list_date": "2023-03-29",
+        "location": "San Jose, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "TikTok E-Commerce - Category Manager - Fashion",
+        "job_id": 3183872141,
+        "job_url": "https://www.linkedin.com/jobs/view/3183872141",
+        "list_date": "2023-03-29",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Creator Growth Manager - TikTok LIVE",
+        "job_id": 3563371313,
+        "job_url": "https://www.linkedin.com/jobs/view/3563371313",
+        "list_date": "2023-04-10",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "LIVE Creator Growth Specialist",
+        "job_id": 3433532900,
+        "job_url": "https://www.linkedin.com/jobs/view/3433532900",
+        "list_date": "2023-03-28",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "TikTok Commerce - Category Manager - Beauty",
+        "job_id": 3558981611,
+        "job_url": "https://www.linkedin.com/jobs/view/3558981611",
+        "list_date": "2023-04-05",
+        "location": "San Francisco, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Learning and Enablement Partner, Academy, Global Commerce US",
+        "job_id": 3478713064,
+        "job_url": "https://www.linkedin.com/jobs/view/3478713064",
+        "list_date": "2023-03-29",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Program Manager, TikTok LIVE Ecosystem",
+        "job_id": 3410134709,
+        "job_url": "https://www.linkedin.com/jobs/view/3410134709",
+        "list_date": "2023-03-29",
+        "location": "Los Angeles, CA"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "HR Operations Coordinator - New York (Third-party Contractor)",
+        "job_id": 3566796101,
+        "job_url": "https://www.linkedin.com/jobs/view/3566796101",
+        "list_date": "2023-04-12",
+        "location": "New York, NY"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Client Solutions Manager — Chicago",
+        "job_id": 3545797516,
+        "job_url": "https://www.linkedin.com/jobs/view/3545797516",
+        "list_date": "2023-04-01",
+        "location": "Chicago, IL"
+    },
+    {
+        "company_name": "TikTok",
+        "company_url": "https://www.linkedin.com/company/tiktok",
+        "job_title": "Global Communications Operations Coordinator",
+        "job_id": 3462897185,
+        "job_url": "https://www.linkedin.com/jobs/view/3462897185",
+        "list_date": "2023-03-29",
+        "location": "Washington, DC"
+    }
+]
+```
+</ResponseExample>

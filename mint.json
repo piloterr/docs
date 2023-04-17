@@ -98,6 +98,13 @@
           "pages": [
             "v2/api-reference/linkedin/post/info"
           ]
+        },
+        {
+          "group": "Job",
+          "pages": [
+              "v2/api-reference/linkedin/job/search",
+              "v2/api-reference/linkedin/job/info"
+          ]
         }
       ]
     },

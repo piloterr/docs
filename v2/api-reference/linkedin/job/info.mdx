@@ -1,0 +1,103 @@
+---
+title: "LinkedIn Job Info"
+api: "GET https://piloterr.com/api/v2/linkedin/job/info"
+description: "Get job info"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="3484616454">
+    Internal Linkedin ID or post url `3484616454`, or `https://www.linkedin.com/jobs/view/3194295086`
+</ParamField>
+
+### Response
+
+<ResponseField name="job" type="object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="company_name" type="string">
+            The name of the company.
+        </ResponseField>
+        <ResponseField name="company_url" type="string">
+            The url of the company.
+        </ResponseField>
+        <ResponseField name="company_logo" type="string">
+            The logo of the company.
+        </ResponseField>
+        <ResponseField name="job_title" type="string">
+            The title of the job.
+        </ResponseField>
+        <ResponseField name="job_id" type="integer">
+            The unique identifier for the job posting.
+        </ResponseField>
+        <ResponseField name="job_url" type="string">
+            The URL of the job posting on LinkedIn.
+        </ResponseField>
+        <ResponseField name="list_date" type="string">
+            The date on which the job posting was listed.
+        </ResponseField>
+        <ResponseField name="location" type="string">
+            The location of the job (e.g., city and country).
+        </ResponseField>
+        <ResponseField name="employment_type" type="string">
+            The type of employment (e.g., full-time, part-time, contract, etc.).
+        </ResponseField>
+        <ResponseField name="industry" type="list">
+            The industry of the job : information technology, computer software, etc.
+        </ResponseField>
+        <ResponseField name="job_functions" type="list">
+            The function of the job : creative, marketing, etc.
+        </ResponseField>
+        <ResponseField name="seniority_level" type="string">
+            The seniority level of the job : entry level, intern, etc.
+        </ResponseField>
+        <ResponseField name="total_applicants" type="integer">
+            The total number of applicants for the job.
+        </ResponseField>
+        <ResponseField name="job_description" type="string">
+            The description of the job.
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash tiktok
+curl --location --request GET 'https://piloterr.com/api/v2/linkedin/job/info?query=3484616454' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json tiktok
+{
+    "company_name": "TikTok",
+    "company_url": "https://www.linkedin.com/company/tiktok",
+    "company_logo": "https://media.licdn.com/dms/image/C510BAQGCdThXIss7UQ/company-logo_100_100/0/1539940587971?e=2147483647&v=beta&t=yjIn0pxATTXE7FJReAlnx_JPTzZt3ubKVvvJ3_E6hKo",
+    "job_title": "Event Coordinator, Global Brand Studio",
+    "job_id": 3484616454,
+    "job_url": "https://www.linkedin.com/jobs/view/3194295086",
+    "list_date": "2 weeks ago",
+    "location": "New York, NY",
+    "employment_type": "full-time",
+    "industry": [
+        "entertainment-providers"
+    ],
+    "job_functions": [
+        "art/creative",
+        "writing/editing",
+        "and-marketing"
+    ],
+    "seniority_level": "not-applicable",
+    "total_applicants": 200,
+    "job_description": "Responsibilities TikTok is the leading destination for short-form mobile video. Our mission is to inspire creativity and bring joy. TikTok has global offices including Los Angeles, New York, London, Paris, Berlin, Dubai, Mumbai, Singapore, Jakarta, Seoul, and Tokyo.Why Join UsAt TikTok, our people are humble, intelligent, compassionate and creative. We create to inspire - for you, for us, and for more than 1 billion users on our platform. We lead with curiosity and aim for the highest, never shying away from taking calculated risks and embracing ambiguity as it comes. Here, the opportunities are limitless for those who dare to pursue bold ideas that exist just beyond the boundary of possibility. Join us and make impact happen with a career at TikTok.About Global Business Marketing and Global Brand StudioThe vision of the Global Business Marketing Team is to create a global brand that amplifies our mission and establishes TikTok as a unique and critical investment for the industry we serve. Fostering best in class creative work on our platform, inspiring the industry through storytelling and showcasing our unique business brand at scale is the core focus of our collective team. Our purpose is to inspire, educate and unlock the possibilities on TikTok for the marketing community and businesses of all sizes. Within the greater Global Business Marketing team, the Global Brand Studio produces business entertainment that inspires TikTok-first thinking and services the different Global Marketing teams. The studio and events team is comprised of world-class designers, production experts, and experiential events professionals, dedicated to showing our agency partners and clients how best to show up on TikTok. We have a passion for, and deep knowledge of TikTok as a platform, and are full of ideas that will help propel the platform into the future.Overview: Global Brand Studio's Event Coordinator will provide support across some of TikTok most influential B2B event moments. The Event Coordinator will support the Global Business Marketing Events Team in ensuring creativity and joy are central to everything we make and put out into the industry ecosystem. The ideal candidate is a forward-thinking leader with proven experience bringing live events and experiential activations to life. We're looking for someone with a strong event background, thrives in a fast-paced, ever-changing environment, and takes pride in their communication & organizational skills. This position reports to the Event Lead. Responsibilities include but are not limited to:- Support in the planning, production, and execution of live events- Bring knowledge and understanding of the experiential landscape to the planning process- Maintain annual events calendar and brainstorm ideas for new events/opportunities- Lead the full project plan of an event/project including but not limited to workback schedule, document management, agendas, meeting minutes, cross-functional communications, swag, travel & entertainment logistics- Support in the management of project budgets, post-event budget reconciliation, and expense reconciliation- Support in the management of cross-functional partners to streamline workflows. Responsibilities include calendar management, core team communications, regional communications.- Build event briefs and assign roles and responsibilities with cross-functional teams- Working knowledge of the SplashThat event management platform to support in event page build, invitation deployment, and RSVP management.- Speaking and hosting management including talent suggestions, collation of presentations, speaker/talent briefings and accommodation requirements if applicable- Work closely with internal Studio team and cross-functional teams on deliverables- Thorough ability to operate in a fast-paced environment with evolving project requirements and priorities- Passion and drive to take on responsibilities outside of core duties, learn about our regional/XFN partners, and create strong relationships with Qualifications - 3-4 years of relevant experience- Rich experience in executing a wide variety of large-budget experiences in entertainment and tech event spaces. Large-scale activations at consumer-facing festivals, trade shows, and industry events are a must- Outstanding communication skills and a collaborative team player in a cross-cultural and cross-functional environment.- Excellent at problem solving, identifying causes and suggesting innovative solutions. - Ability to juggle multiple projects at once in a fast-paced, results oriented environment.- Excellent written and verbal communication skills.- Resourceful self-starter who is comfortable with ambiguity.- Highly motivated and a high level of initiative; ability to work independently, in support of creative goals and business objectives.- Energetic, friendly and self-motivated attitude.- Proven ability to prioritize, and manage multiple tasks in a fast paced and deadline driven environment.- Experience working with external agency partners & vendors- Thorough knowledge of standard office software applications including Google Slides, Google Survey, Keynote, Word, PowerPoint. Preferred knowledge of SplashThat & other event software programs.TikTok is committed to creating an inclusive space where employees are valued for their skills, experiences, and unique perspectives. Our platform connects people from across the globe and so does our workplace. At TikTok, our mission is to inspire creativity and bring joy. To achieve that goal, we are committed to celebrating our diverse voices and to creating an environment that reflects the many communities we reach. We are passionate about this and hope you are too.TikTok is committed to providing reasonable accommodations during our recruitment process. If you need assistance or an accommodation, please reach out to us at accommodations@tiktok.com. Job Information:【For Pay Transparency】Compensation Description (annually) The base salary range for this position in the selected city is $68000 - $106666 annually.​Compensation may vary outside of this range depending on a number of factors, including a candidate’s qualifications, skills, competencies and experience, and location. Base pay is one part of the Total Package that is provided to compensate and recognize employees for their work, and this role may be eligible for additional discretionary bonuses/incentives, and restricted stock units.​At ByteDance/TikTok our benefits are designed to convey company culture and values, to create an efficient and inspiring work environment, and to support ByteDancers to give their best in both work and life. We offer the following benefits to eligible employees: ​We cover 100% premium coverage for employee medical insurance, approximately 75% premium coverage for dependents and offer a Health Savings Account(HSA) with a company match. As well as Dental, Vision, Short/Long term Disability, Basic Life, Voluntary Life and AD&D insurance plans. In addition to Flexible Spending Account(FSA) Options like Health Care, Limited Purpose and Dependent Care. ​Our time off and leave plans are: 10 paid holidays per year plus 17 days of Paid Personal Time Off(PPTO) (prorated upon hire and increased by tenure) and 10 paid sick days per year as well as 12 weeks of paid Parental leave and 8 weeks of paid Supplemental Disability. ​We also provide generous benefits like mental and emotional health benefits through our EAP and Lyra. A 401K company match, gym and cellphone service reimbursements. The Company reserves the right to modify or change these benefits programs at any time, with or without notice.​Show moreShow less"
+}
+```
+</ResponseExample>
