@@ -4,4 +4,184 @@ api: "GET https://piloterr.com/api/v2/facebook/page/info"
 description: "Get Facebook page info"
 ---
 
-WIP open old doc : https://piloterr.com/docs
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="actutoulouse">
+    Facebook page url or slug : `https://www.facebook.com/actutoulouse` or `actutoulouse`
+</ParamField>
+
+### Response
+
+<ResponseField name="profile" type="Profile Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            Facebook page id
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            The name of the page
+        </ResponseField>
+        <ResponseField name="logo" type="string">
+            The URL of the page's logo image
+        </ResponseField>
+        <ResponseField name="url" type="string">
+            The URL of the page's Facebook profile
+        </ResponseField>
+        <ResponseField name="like_count" type="number">
+            The number of likes the page has received
+        </ResponseField>
+        <ResponseField name="talking_count" type="number">
+            The number of people talking about the page
+        </ResponseField>
+        <ResponseField name="were_here_count" type="number">
+            The number of people who have been to the location
+        </ResponseField>
+        <ResponseField name="follower_count" type="number">
+            The number of followers of the page
+        </ResponseField>
+        <ResponseField name="description" type="string">
+            A short description of the page
+        </ResponseField>
+        <ResponseField name="category" type="string">
+            The category of the page
+        </ResponseField>
+        <ResponseField name="location" type="null">
+            The location of the page
+        </ResponseField>
+        <ResponseField name="phone" type="null">
+            The phone number of the page
+        </ResponseField>
+        <ResponseField name="email" type="string">
+            The email address of the page
+        </ResponseField>
+        <ResponseField name="website" type="string">
+            The URL of the page's website : `twitter`, `instagram`, `pinterest`, `snapchat`, `linkedin`, etc.
+        </ResponseField>
+        <ResponseField name="price_range" type="string">
+            The price range of the page : `€`, `€€`, `€€€`, `€€€€`
+        </ResponseField>
+        <Expandable title="social_networks" defaultOpen={false}>
+            <ResponseField name="snapchat" type="string">
+                The Snapchat username of the page
+            </ResponseField>
+            <ResponseField name="twitter" type="string">
+                The Twitter URL of the page
+            </ResponseField>
+            <ResponseField name="instagram" type="string">
+                The Instagram URL of the page
+            </ResponseField>
+            <ResponseField name="pinterest" type="string">
+                The Pinterest URL of the page
+            </ResponseField>
+        </Expandable>
+        <ResponseField name="open_hours" type="list">
+            The opening hours of the location
+        </ResponseField>
+        <ResponseField name="rating" type="float">
+            The rating of the page
+        </ResponseField>
+        <ResponseField name="rating_count" type="number">
+            The number of ratings of the page
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash Actu Toulouse
+curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?query=actutoulouse' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+```bash Tour Eiffel
+curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?query=https://www.facebook.com/TourEiffel' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json Actu Toulouse
+{
+    "id": "355902537821431",
+    "name": "Actu Toulouse",
+    "logo": "https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-1/120481564_3272651906146465_8866723290074836499_n.jpg?stp=dst-jpg_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=wfYEf6Zo2VkAX-dt7-o&_nc_ht=scontent-cdg4-2.xx&oh=00_AfBKtHFgV1Wd9x3TXT0xW8ZdhZATcaPWEWCYNEuMP3kJQA&oe=6464A468",
+    "url": "https://www.facebook.com/actutoulouse/",
+    "like_count": 235040,
+    "talking_count": 37601,
+    "follower_count": 272243,
+    "description": "Actu Toulouse est le site d'actualités de la plateforme Actu.fr à Toulouse, membre du groupe Sipa Ouest-France, qui édite les journaux Côté Toulouse (gratuit) et Voix du Midi (payant).\nInfos en temps réel, bons plans, sorties et services !",
+    "category": "media/news-company",
+    "location": null,
+    "phone": null,
+    "email": "redaction.toulouse@actu.fr",
+    "website": "https://actu.fr/toulouse/",
+    "social_networks": {
+        "snapchat": "actutoulouse",
+        "twitter": "http://twitter.com/actutoulouse",
+        "instagram": "http://instagram.com/actutoulouse",
+        "pinterest": "https://www.pinterest.com/actutoulouse"
+    }
+}
+```
+
+```json Tour Eiffel
+{
+    "id": "141184112585566",
+    "name": "Tour Eiffel",
+    "logo": "https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-1/312439175_5708080062562582_8219090154889417738_n.jpg?stp=dst-jpg_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=dCiK_Z2KiekAX-oM42j&_nc_ht=scontent-cdg4-2.xx&oh=00_AfCOW_tRRnYuj03ikjgpkOF6ApbiHWOYkTPH1qLyw2KULQ&oe=64426F24",
+    "url": "https://www.facebook.com/TourEiffel/",
+    "like_count": 2119586,
+    "talking_count": 25193,
+    "were_here_count": 6605475,
+    "follower_count": 2132773,
+    "description": "Bienvenue sur la page officielle de la tour Eiffel ! \n\nWelcome to the Eiffel Tower official page!",
+    "category": "Monument",
+    "location": "Parc du Champ de Mars, 5 Avenue Anatole France\n75007 Paris, France",
+    "phone": "0 892 70 12 39",
+    "email": null,
+    "website": "https://www.toureiffel.paris/",
+    "price_range": null,
+    "social_networks": null,
+    "open_hours": [
+        {
+            "day": "Monday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Tuesday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Wednesday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Thursday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Friday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Saturday",
+            "hours": "9:00 AM - 12:45 AM"
+        },
+        {
+            "day": "Sunday",
+            "hours": "9:00 AM - 12:45 AM"
+        }
+    ],
+    "rating": null,
+    "rating_count": null
+}
+```
+</ResponseExample>
