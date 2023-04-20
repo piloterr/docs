@@ -20,6 +20,10 @@
     {
       "name": "Status",
       "url": "https://status.piloterr.com"
+    },
+    {
+      "name": "Postman",
+      "url": "https://documenter.getpostman.com/view/9159115/2s8ZDSaPsK"
     }
   ],
   "topbarCtaButton": {
@@ -75,6 +79,14 @@
             "v2/api-reference/database/company_email_pattern"
           ]
         }
+      ]
+    },
+    {
+      "group": "Leboncoin",
+      "pages": [
+        "v2/api-reference/leboncoin/search",
+        "v2/api-reference/leboncoin/search_api",
+        "v2/api-reference/leboncoin/ad"
       ]
     },
     {

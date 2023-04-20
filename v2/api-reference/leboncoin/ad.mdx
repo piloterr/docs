@@ -1,0 +1,228 @@
+---
+title: "Leboncoin Ad"
+api: "GET https://piloterr.com/api/v2/leboncoin/ad"
+description: "Get a Leboncoin Ad"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="2330146991">
+    A valid Leboncoin id 2330146991
+</ParamField>
+
+### Response
+
+<ResponseField name="company" type="Company Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="ad_type" type="string">
+            The type of ad
+        </ResponseField>
+        <ResponseField name="attributes" type="array">
+            The ad attributes
+        </ResponseField>
+        <ResponseField name="body" type="string">
+            The ad body
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash current ad
+curl --location --request GET 'https://piloterr.com/api/v2/leboncoin/ad?query=2330146991' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json ad
+{
+    "ad_type": "offer",
+    "attributes": [
+    {
+        "key": "rating_score",
+        "value": "0.96",
+        "values": [
+            "0.96"
+        ],
+        "value_label": "0.96",
+        "generic": false
+    },
+    {
+        "key": "rating_count",
+        "value": "14",
+        "values": [
+            "14"
+        ],
+        "value_label": "14",
+        "generic": false
+    },
+    {
+        "key": "profile_picture_url",
+        "value": "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/cd134b51-4dc9-5e12-9973-e24e507ab568?rule=pp-small",
+        "values": [
+            "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/cd134b51-4dc9-5e12-9973-e24e507ab568?rule=pp-small"
+        ],
+        "value_label": "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/cd134b51-4dc9-5e12-9973-e24e507ab568?rule=pp-small",
+        "generic": false
+    },
+    {
+        "key": "estimated_parcel_weight",
+        "value": "861",
+        "values": [
+            "861"
+        ],
+        "value_label": "861",
+        "generic": false
+    },
+    {
+        "key": "is_bundleable",
+        "value": "true",
+        "values": [
+            "true"
+        ],
+        "value_label": "true",
+        "generic": false
+    },
+    {
+        "key": "purchase_cta_visible",
+        "value": "false",
+        "values": [
+            "false"
+        ],
+        "value_label": "false",
+        "generic": false
+    },
+    {
+        "key": "condition",
+        "value": "etatneuf",
+        "values": [
+            "etatneuf"
+        ],
+        "key_label": "État",
+        "value_label": "État neuf",
+        "generic": true
+    },
+    {
+        "key": "shipping_type",
+        "value": "mondial_relay",
+        "values": [
+        "mondial_relay",
+            "face_to_face"
+        ],
+        "value_label": "mondial_relay",
+        "generic": false
+    },
+    {
+        "key": "shippable",
+        "value": "true",
+        "values": [
+            "true"
+        ],
+        "value_label": "true",
+        "generic": false
+    },
+    {
+        "key": "is_import",
+        "value": "false",
+        "values": [
+            "false"
+        ],
+        "value_label": "false",
+        "generic": false
+    },
+    {
+        "key": "donation",
+        "value": "0",
+        "values": [
+            "0"
+        ],
+        "value_label": "0",
+        "generic": false
+    }
+    ],
+    "body": "Bonjour\nJe vous propose le livre L’intelligence artificielle pour les développeurs\nConcepts et implémenterions en C#\nÉtat neuf\nÉditions Eni",
+    "category_id": "27",
+    "category_name": "Livres",
+    "first_publication_date": "2023-04-09 22:41:47",
+    "has_phone": false,
+    "images": {
+        "thumb_url": "https://img.leboncoin.fr/api/v1/lbcpb1/images/9f/7f/b3/9f7fb31ca3d3b29f8762da50cff8341b040038ce.jpg?rule=ad-thumb",
+        "small_url": "https://img.leboncoin.fr/api/v1/lbcpb1/images/9f/7f/b3/9f7fb31ca3d3b29f8762da50cff8341b040038ce.jpg?rule=ad-small",
+        "nb_images": 2,
+        "urls": [
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/9f/7f/b3/9f7fb31ca3d3b29f8762da50cff8341b040038ce.jpg?rule=ad-image",
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/c9/94/84/c994842cdfa5af9600638c49f37b42ec6f17e24a.jpg?rule=ad-image"
+        ],
+        "urls_thumb": [
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/9f/7f/b3/9f7fb31ca3d3b29f8762da50cff8341b040038ce.jpg?rule=ad-thumb",
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/c9/94/84/c994842cdfa5af9600638c49f37b42ec6f17e24a.jpg?rule=ad-thumb"
+        ],
+        "urls_large": [
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/9f/7f/b3/9f7fb31ca3d3b29f8762da50cff8341b040038ce.jpg?rule=ad-large",
+            "https://img.leboncoin.fr/api/v1/lbcpb1/images/c9/94/84/c994842cdfa5af9600638c49f37b42ec6f17e24a.jpg?rule=ad-large"
+        ]
+    },
+    "index_date": "2023-04-09 22:41:47",
+    "list_id": 2330146991,
+    "location": {
+        "country_id": "FR",
+        "region_id": "22",
+        "region_name": "Rhône-Alpes",
+        "department_id": "69",
+        "department_name": "Rhône",
+        "city_label": "Lyon 69005 5e Arrondissement",
+        "city": "Lyon",
+        "zipcode": "69005",
+        "lat": 45.76265,
+        "lng": 4.8269,
+        "source": "address",
+        "provider": "here",
+        "is_shape": false,
+        "feature": {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.8269,
+                    45.76265
+                ]
+            },
+            "properties": null
+        }
+    },
+    "options": {
+        "has_option": false,
+        "booster": false,
+        "photosup": false,
+        "urgent": false,
+        "gallery": false,
+        "sub_toplist": false
+    },
+    "owner": {
+        "store_id": "10786568",
+        "user_id": "7b7ed20c-dc08-4e1a-8aac-de75675d2e30",
+        "type": "private",
+        "name": "MAXIME",
+        "no_salesmen": false,
+        "activity_sector": ""
+    },
+    "price": [
+        25
+    ],
+    "price_cents": 2500,
+    "price_calendar": null,
+    "status": "active",
+    "subject": "Livre l’intelligence artificielle pour les développeurs",
+    "url": "https://www.leboncoin.fr/livres/2330146991.htm"
+}
+```
+</ResponseExample>

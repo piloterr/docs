@@ -1,0 +1,315 @@
+---
+title: "Leboncoin Search"
+api: "GET https://piloterr.com/api/v2/leboncoin/search"
+description: "Search for Leboncoin ads (not optimized)"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://www.leboncoin.fr/recherche?category=9%26locations=Paris__48.8495376581948_2.340572835508209_8691">
+    A valid Leboncoin search URL
+</ParamField>
+
+### Response
+
+<ResponseField name="company" type="Company Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="total" type="integer">
+            Total number of ads
+        </ResponseField>
+        <ResponseField name="total_all" type="integer">
+            Total number of ads (all)
+        </ResponseField>
+        <ResponseField name="total_pro" type="integer">
+            Total of professional ads
+        </ResponseField>
+        <ResponseField name="total_private" type="integer">
+            Total of private ads
+        </ResponseField>
+        <ResponseField name="total_active" type="integer">
+            Total of active ads
+        </ResponseField>
+        <ResponseField name="total_inactive" type="integer">
+            Total of inactive ads
+        </ResponseField>
+        <ResponseField name="total_shippable" type="integer">
+            Ads that can be shipped
+        </ResponseField>
+        <ResponseField name="max_pages" type="integer">
+            Max number of pages
+        </ResponseField>
+        <ResponseField name="ads" type="list">
+            List of ads
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash current query
+curl --location --request GET 'https://piloterr.com/api/v2/leboncoin/search?query=https://www.leboncoin.fr/recherche?category=9%26locations=Paris__48.8495376581948_2.340572835508209_8691' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json current query
+{
+    "total": 8830,
+    "total_all": 8830,
+    "total_pro": 7060,
+    "total_private": 1770,
+    "total_active": 0,
+    "total_inactive": 0,
+    "total_shippable": 0,
+    "max_pages": 100,
+    "ads": [
+        {
+            "ad_type": "offer",
+            "attributes": [
+            {
+                "key": "rating_score",
+                "value": "1",
+                "values": [
+                "1"
+                ],
+                "value_label": "1",
+                "generic": false
+            },
+            {
+                "key": "rating_count",
+                "value": "19",
+                "values": [
+                "19"
+                ],
+                "value_label": "19",
+                "generic": false
+            },
+            {
+                "key": "profile_picture_url",
+                "value": "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/7c703017-600b-5ae7-972d-40c545219c7b?rule=pp-small",
+                "values": [
+                "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/7c703017-600b-5ae7-972d-40c545219c7b?rule=pp-small"
+                ],
+                "value_label": "https://img.leboncoin.fr/api/v1/tenants/9a6387a1-6259-4f2c-a887-7e67f23dd4cb/domains/20bda58f-d650-462e-a72a-a5a7ecf2bf88/buckets/21d2b0bc-e54c-4b64-a30b-89127b18b785/images/profile/pictures/default/7c703017-600b-5ae7-972d-40c545219c7b?rule=pp-small",
+                "generic": false
+            },
+            {
+                "key": "real_estate_type",
+                "value": "4",
+                "values": [
+                "4"
+                ],
+                "key_label": "Type de bien",
+                "value_label": "Parking",
+                "generic": true
+            },
+            {
+                "key": "square",
+                "value": "15",
+                "values": [
+                "15"
+                ],
+                "key_label": "Surface",
+                "value_label": "15 m²",
+                "generic": true
+            },
+            {
+                "key": "rooms",
+                "value": "1",
+                "values": [
+                "1"
+                ],
+                "key_label": "Pièces",
+                "value_label": "1",
+                "generic": true
+            },
+            {
+                "key": "energy_rate",
+                "value": "a",
+                "values": [
+                "a"
+                ],
+                "key_label": "Classe énergie",
+                "value_label": "A",
+                "generic": true
+            },
+            {
+                "key": "ges",
+                "value": "a",
+                "values": [
+                "a"
+                ],
+                "key_label": "GES",
+                "value_label": "A",
+                "generic": true
+            },
+            {
+                "key": "nb_parkings",
+                "value": "1",
+                "values": [
+                "1"
+                ],
+                "key_label": "Places de parking",
+                "value_label": "1",
+                "generic": true
+            },
+            {
+                "key": "district_id",
+                "value": "75109",
+                "values": [
+                "75109"
+                ],
+                "value_label": "75109",
+                "generic": false
+            },
+            {
+                "key": "district_visibility",
+                "value": "false",
+                "values": [
+                "false"
+                ],
+                "value_label": "false",
+                "generic": false
+            },
+            {
+                "key": "district_type_id",
+                "value": "3",
+                "values": [
+                "3"
+                ],
+                "value_label": "3",
+                "generic": false
+            },
+            {
+                "key": "district_resolution_type",
+                "value": "integration",
+                "values": [
+                "integration"
+                ],
+                "value_label": "integration",
+                "generic": false
+            },
+            {
+                "key": "immo_sell_type",
+                "value": "old",
+                "values": [
+                "old"
+                ],
+                "value_label": "old",
+                "generic": false
+            },
+            {
+                "key": "is_import",
+                "value": "false",
+                "values": [
+                "false"
+                ],
+                "value_label": "false",
+                "generic": false
+            },
+            {
+                "key": "lease_type",
+                "value": "sell",
+                "values": [
+                "sell"
+                ],
+                "value_label": "sell",
+                "generic": false
+            },
+            {
+                "key": "old_price",
+                "value": "31000",
+                "values": [
+                "31000"
+                ],
+                "value_label": "31000",
+                "generic": false
+            }
+            ],
+            "body": "",
+            "category_id": "9",
+            "category_name": "Ventes immobilières",
+            "first_publication_date": "2023-04-20 21:48:31",
+            "has_phone": false,
+            "images": {
+                "thumb_url": "https://img.leboncoin.fr/api/v1/lbcpb1/images/7f/1a/5a/7f1a5a785496c2a9344d325b48c0bfc0a067dc8b.jpg?rule=ad-thumb",
+                "small_url": "https://img.leboncoin.fr/api/v1/lbcpb1/images/7f/1a/5a/7f1a5a785496c2a9344d325b48c0bfc0a067dc8b.jpg?rule=ad-small",
+                "nb_images": 1,
+                "urls": [
+                "https://img.leboncoin.fr/api/v1/lbcpb1/images/7f/1a/5a/7f1a5a785496c2a9344d325b48c0bfc0a067dc8b.jpg?rule=ad-image"
+                ],
+                "urls_thumb": [
+                "https://img.leboncoin.fr/api/v1/lbcpb1/images/7f/1a/5a/7f1a5a785496c2a9344d325b48c0bfc0a067dc8b.jpg?rule=ad-thumb"
+                ],
+                "urls_large": [
+                "https://img.leboncoin.fr/api/v1/lbcpb1/images/7f/1a/5a/7f1a5a785496c2a9344d325b48c0bfc0a067dc8b.jpg?rule=ad-large"
+                ]
+            },
+            "index_date": "2023-04-20 21:48:31",
+            "list_id": 2179560719,
+            "location": {
+                "country_id": "FR",
+                "region_id": "12",
+                "region_name": "Ile-de-France",
+                "department_id": "75",
+                "department_name": "Paris",
+                "city_label": "Paris 75009 9e Arrondissement",
+                "city": "Paris",
+                "zipcode": "75009",
+                "lat": 48.87115,
+                "lng": 2.33207,
+                "source": "city",
+                "provider": "here",
+                "is_shape": true,
+                "feature": {
+                    "type": "Feature",
+                    "geometry": {
+                        "type": "Point",
+                        "coordinates": [
+                        2.33207,
+                        48.87115
+                        ]
+                    },
+                    "properties": null
+                }
+            },
+            "options": {
+                "has_option": false,
+                "booster": false,
+                "photosup": false,
+                "urgent": false,
+                "gallery": false,
+                "sub_toplist": false
+            },
+            "owner": {
+                "store_id": "14589713",
+                "user_id": "1988e0d2-9857-4270-80a3-16bee1703849",
+                "type": "private",
+                "name": "Dan",
+                "no_salesmen": true,
+                "activity_sector": ""
+            },
+            "price": [
+            30500
+            ],
+            "price_cents": 3050000,
+            "price_calendar": null,
+            "status": "active",
+            "subject": "Parking Galeries Lafayette",
+            "url": "https://www.leboncoin.fr/ventes_immobilieres/2179560719.htm"
+        },
+        ...
+    ]
+}
+```
+</ResponseExample>
