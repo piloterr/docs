@@ -90,6 +90,12 @@
       ]
     },
     {
+      "group": "Crunchbase",
+      "pages": [
+        "v2/api-reference/crunchbase/company/info"
+      ]
+    },
+    {
       "group": "Linkedin",
       "pages": [
         {

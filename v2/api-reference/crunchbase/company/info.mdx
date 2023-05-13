@@ -1,0 +1,297 @@
+---
+title: "Crunchbase Company Info"
+api: "GET https://piloterr.com/api/v2/crunchbase/company/info"
+description: "Get company information from Crunchbase"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://www.crunchbase.com/organization/openai">
+    The Crunchbase URL of the company : `https://www.crunchbase.com/organization/openai` or `openai`
+</ParamField>
+
+
+### Response
+
+<ResponseField name="company" type="Company Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="uuid" type="string">
+            The UUID of the company
+        </ResponseField>
+        <ResponseField name="logo" type="string">
+            The URL of the company logo
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            The name of the company
+        </ResponseField>
+        <ResponseField name="permalink" type="string">
+            The permalink of the company
+        </ResponseField>
+        <ResponseField name="website" type="string">
+            The website of the company
+        </ResponseField>
+        <ResponseField name="employee_count" type="string">
+            The number of employees of the company : `1-10`, `11-50`, `51-100`, `101-250`, `251-500`, `501-1000`, `1001-5000`, `5001-10000`, `10001+`
+        </ResponseField>
+        <ResponseField name="phone_number" type="string">
+            The phone number of the company
+        </ResponseField>
+        <ResponseField name="aliases" type="array">
+            The aliases of the company
+        </ResponseField>
+        <ResponseField name="founded" type="string">
+            The date of the company creation
+        </ResponseField>
+        <ResponseField name="company_type" type="string">
+            The type of the company : `for profit` or `non profit`
+        </ResponseField>
+        <ResponseField name="operating_status" type="string">
+            The operating status of the company
+        </ResponseField>
+        <ResponseField name="tags" type="array">
+            The tags of the company
+        </ResponseField>
+        <ResponseField name="headline" type="string">
+            The headline of the company
+        </ResponseField>
+        <ResponseField name="description" type="string">
+            The description of the company
+        </ResponseField>
+        <ResponseField name="funding_rounds_headline" type="object">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="funding_total" type="object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="value" type="number">
+                            The total funding of the company
+                        </ResponseField>
+                        <ResponseField name="currency" type="string">
+                            The currency of the total funding of the company
+                        </ResponseField>
+                        <ResponseField name="value_usd" type="number">
+                            The total funding of the company in USD
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="num_funding_rounds" type="number">
+                    The number of funding rounds of the company
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="company_financials_highlights" type="object">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="num_lead_investments" type="number">
+                    The number of lead investments of the company
+                </ResponseField>
+                <ResponseField name="num_funds" type="number">
+                    The number of funds of the company
+                </ResponseField>
+                <ResponseField name="num_investments" type="number">
+                    The number of investments of the company
+                </ResponseField>
+                <ResponseField name="num_investors" type="number">
+                    The number of investors of the company
+                </ResponseField>
+                <ResponseField name="num_lead_investors" type="number">
+                    The number of lead investors of the company
+                </ResponseField>
+                <ResponseField name="funding_total" type="object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="value" type="number">
+                            The total funding of the company
+                        </ResponseField>
+                        <ResponseField name="currency" type="string">
+                            The currency of the total funding of the company
+                        </ResponseField>
+                        <ResponseField name="value_usd" type="number">
+                            The total funding of the company in USD
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="num_funding_rounds" type="number">
+                    The number of funding rounds of the company
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="social_networks" type="list">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="facebook" type="string">
+                    The facebook URL of the company
+                </ResponseField>
+                <ResponseField name="twitter" type="string">
+                    The twitter URL of the company
+                </ResponseField>
+                <ResponseField name="linkedin" type="string">
+                    The linkedin URL of the company
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="semrush_summary" type="object">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="semrush_global_rank" type="number">
+                    The global rank of the company on SEMRush
+                </ResponseField>
+                <ResponseField name="semrush_visits_latest_month" type="number">
+                    The number of visits of the company on SEMRush during the latest month
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="categories" type="list">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="uuid" type="string">
+                    The UUID of the category
+                </ResponseField>
+                <ResponseField name="permalink" type="string">
+                    The permalink of the category
+                </ResponseField>
+                <ResponseField name="name" type="string">
+                    The name of the category
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="location" type="list">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="uuid" type="string">
+                    The UUID of the location
+                </ResponseField>
+                <ResponseField name="permalink" type="string">
+                    The permalink of the location
+                </ResponseField>
+                <ResponseField name="name" type="string">
+                    The name of the location
+                </ResponseField>
+                <ResponseField name="type" type="string">
+                    The type of the location
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash openai
+curl --location --request GET 'https://piloterr.com/api/v2/crunchbase/company/info?query=https://www.crunchbase.com/organization/openai' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json openai
+{
+    "uuid": "cf2c678c-b81a-80c3-10d1-9c5e76448e51",
+    "logo": "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,h_170,w_170,f_auto,b_white,q_auto:eco,dpr_1/jjykwqqhsscreywea4gb",
+    "name": "OpenAI",
+    "permalink": "openai",
+    "website": "https://www.openai.com",
+    "employee_count": "501-1000",
+    "phone_number": null,
+    "aliases": [
+        "OpenAI LP"
+    ],
+    "founded": "2015-12-11",
+    "company_type": "for profit",
+    "operating_status": "active",
+    "tags": [
+        "unicorn"
+    ],
+    "headline": "OpenAI is an AI research and deployment company that conducts research and implements machine learning.",
+    "description": "OpenAI is an AI research and deployment company that conducts research and implements machine learning. The research organization is dedicated to advancing artificial intelligence in a safe and beneficial manner.",
+    "funding_rounds_headline": {
+        "funding_total": {
+            "value": 11300120000,
+            "currency": "USD",
+            "value_usd": 11300120000
+        },
+        "num_funding_rounds": 7
+    },
+    "company_financials_highlights": {
+            "num_lead_investments": 1,
+            "num_funds": 1,
+            "num_investments": 3,
+            "num_investors": 12,
+            "num_lead_investors": 3,
+            "funding_total": {
+            "value": 11300120000,
+            "currency": "USD",
+            "value_usd": 11300120000
+        },
+        "num_funding_rounds": 7
+    },
+    "social_networks": [
+        {
+            "name": "facebook",
+            "url": "https://www.facebook.com/openai.research"
+        },
+        {
+            "name": "linkedin",
+            "url": "https://www.linkedin.com/company/openai"
+        },
+        {
+            "name": "twitter",
+            "url": "https://twitter.com/OpenAI"
+        }
+    ],
+    "semrush_summary": {
+        "semrush_global_rank": 36,
+        "semrush_visits_latest_month": 2015921063
+    },
+    "categories": [
+        {
+            "uuid": "c4d8caf3-5fe7-359b-f9f2-2d708378e4ee",
+            "permalink": "artificial-intelligence",
+            "name": "Artificial Intelligence"
+        },
+        {
+            "uuid": "5ea0cdb7-c9a6-47fc-50f8-c9b0fac04863",
+            "permalink": "machine-learning",
+            "name": "Machine Learning"
+        },
+        {
+            "uuid": "789bbbef-c46e-1532-a68d-f17da87090ea",
+            "permalink": "natural-language-processing",
+            "name": "Natural Language Processing"
+        },
+        {
+            "uuid": "c08b5441-a05b-9777-b7a6-012728caddd9",
+            "permalink": "software",
+            "name": "Software"
+        }
+    ],
+    "location": [
+        {
+            "uuid": "528f5e3c-90d1-1111-5d1c-2e4ff979d58e",
+            "permalink": "san-francisco-california",
+            "name": "San Francisco",
+            "type": "city"
+        },
+        {
+            "uuid": "eb879a83-c91a-121e-0bb8-829782dbcf04",
+            "permalink": "california-united-states",
+            "name": "California",
+            "type": "region"
+        },
+        {
+            "uuid": "f110fca2-1055-99f6-996d-011c198b3928",
+            "permalink": "united-states",
+            "name": "United States",
+            "type": "country"
+        },
+        {
+            "uuid": "b25caef9-a1b8-3a5d-6232-93b2dfb6a1d1",
+            "permalink": "north-america",
+            "name": "North America",
+            "type": "continent"
+        }
+    ]
+}
+```
+</ResponseExample>
