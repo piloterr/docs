@@ -4,6 +4,10 @@ api: "GET https://piloterr.com/api/v2/crunchbase/company/info"
 description: "Get company information from Crunchbase"
 ---
 
+<Tip>
+    It is possible to get information about the company from Crunchbase using a URL linked to the company (crunchbase, linkedin, twitter or facebook).
+</Tip>
+
 ### Header
 
 <ParamField header="x-api-key" type="string" required={true}>
@@ -13,9 +17,8 @@ description: "Get company information from Crunchbase"
 ### Parameters
 
 <ParamField query="query" type="string" optional={false} placeholder="https://www.crunchbase.com/organization/openai">
-    The Crunchbase URL of the company : `https://www.crunchbase.com/organization/openai` or `openai`
+    A query to search for a company. It can be: **Crunchbase URL**, **Website URL**, **Linkedin URL**, **Facebook URL** or **Twitter URL**.
 </ParamField>
-
 
 ### Response
 
