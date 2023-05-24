@@ -20,8 +20,11 @@ description: "Get Facebook page info"
 
 <ResponseField name="profile" type="Profile Object">
     <Expandable title="properties" defaultOpen={true}>
-        <ResponseField name="id" type="string">
-            Facebook page id
+        <ResponseField name="profile_id" type="string">
+            Facebook profile ID
+        </ResponseField>
+        <ResponseField name="page_id" type="string">
+            Facebook page ID
         </ResponseField>
         <ResponseField name="name" type="string">
             The name of the page
@@ -110,7 +113,8 @@ curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?qu
 <ResponseExample>
 ```json Actu Toulouse
 {
-    "id": "355902537821431",
+    "profile_id": "100064929574858",
+    "page_id": "355902537821431",
     "name": "Actu Toulouse",
     "logo": "https://scontent-cdg4-2.xx.fbcdn.net/v/t1.6435-1/120481564_3272651906146465_8866723290074836499_n.jpg?stp=dst-jpg_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=wfYEf6Zo2VkAX-dt7-o&_nc_ht=scontent-cdg4-2.xx&oh=00_AfBKtHFgV1Wd9x3TXT0xW8ZdhZATcaPWEWCYNEuMP3kJQA&oe=6464A468",
     "url": "https://www.facebook.com/actutoulouse/",
@@ -134,7 +138,8 @@ curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?qu
 
 ```json Tour Eiffel
 {
-    "id": "141184112585566",
+    "profile_id": "100069431782666",
+    "page_id": "141184112585566",
     "name": "Tour Eiffel",
     "logo": "https://scontent-cdg4-2.xx.fbcdn.net/v/t39.30808-1/312439175_5708080062562582_8219090154889417738_n.jpg?stp=dst-jpg_p200x200&_nc_cat=1&ccb=1-7&_nc_sid=dbb9e7&_nc_ohc=dCiK_Z2KiekAX-oM42j&_nc_ht=scontent-cdg4-2.xx&oh=00_AfCOW_tRRnYuj03ikjgpkOF6ApbiHWOYkTPH1qLyw2KULQ&oe=64426F24",
     "url": "https://www.facebook.com/TourEiffel/",
@@ -150,6 +155,8 @@ curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?qu
     "website": "https://www.toureiffel.paris/",
     "price_range": null,
     "social_networks": null,
+    "rating": 4.7,
+    "rating_count": 292472,
     "open_hours": [
         {
             "day": "Monday",
@@ -179,9 +186,7 @@ curl --location --request GET 'https://piloterr.com/api/v2/facebook/page/info?qu
             "day": "Sunday",
             "hours": "9:00 AM - 12:45 AM"
         }
-    ],
-    "rating": null,
-    "rating_count": null
+    ]
 }
 ```
 </ResponseExample>
