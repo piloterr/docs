@@ -4,5 +4,94 @@ api: "GET https://piloterr.com/api/v2/instagram/user/info"
 description: "Get Instagram user info"
 ---
 
-WIP open old doc : https://piloterr.com/docs
+### Header
 
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://www.instagram.com/k.mbappe">
+    Instagram user url : `https://www.instagram.com/k.mbappe` or `k.mbappe`
+</ParamField>
+
+### Response
+
+<ResponseField name="user" type="User Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            Instagram user id
+        </ResponseField>
+        <ResponseField name="username" type="string">
+            Instagram username
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            Instagram user name
+        </ResponseField>
+        <ResponseField name="gender" type="string">
+            Gender of the user : `male` or `female`
+        </ResponseField>
+        <ResponseField name="avatar" type="string">
+            Instagram user avatar
+        </ResponseField>
+        <ResponseField name="description" type="string">
+            Instagram user description
+        </ResponseField>
+        <ResponseField name="website" type="string">
+            Instagram user website
+        </ResponseField>
+        <ResponseField name="private" type="boolean">
+            Is the user private
+        </ResponseField>
+        <ResponseField name="verified" type="boolean">
+            Is the user verified
+        </ResponseField>
+        <ResponseField name="business_account" type="boolean">
+            Is the user a business account
+        </ResponseField>
+        <ResponseField name="business_category_name" type="string">
+            Instagram user business category name
+        </ResponseField>
+        <ResponseField name="category_name" type="string">
+            Instagram user category name
+        </ResponseField>
+        <ResponseField name="followers" type="number">
+            Instagram user followers count
+        </ResponseField>
+        <ResponseField name="following" type="number">
+            Instagram user following count
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash mbappe user info
+curl --location --request GET 'https://piloterr.com/api/v2/instagram/user/info?query=https://www.instagram.com/k.mbappe' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json mbappe user info
+{
+    "id": "4213518589",
+    "username": "k.mbappe",
+    "name": "Kylian Mbappé",
+    "gender": "male",
+    "avatar": "https://scontent-cdg4-1.cdninstagram.com/v/t51.2885-19/252713041_231066042425309_8989807381344431608_n.jpg?stp=dst-jpg_s320x320&_nc_ht=scontent-cdg4-1.cdninstagram.com&_nc_cat=1&_nc_ohc=NwTcSNlIKX8AX92_wLo&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfAIO2Ije9S9DIzaJqg9wN7YVfTS8C9hrFxdof55EGvbGQ&oe=64744BC2&_nc_sid=f70a57",
+    "description": "PSG & France",
+    "website": null,
+    "private": false,
+    "verified": true,
+    "business_account": true,
+    "business_category_name": "Creators & Celebrities",
+    "category_name": "Athlete",
+    "followers": 104028905,
+    "following": 395
+}
+```
+</ResponseExample>

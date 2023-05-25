@@ -1,8 +1,154 @@
 ---
 title: "Instagram Post Info"
 api: "GET https://piloterr.com/api/v2/instagram/post/info"
-description: "Get Instagram user info"
+description: "Get Instagram post info"
 ---
 
-WIP open old doc : https://piloterr.com/docs
+### Header
 
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://www.instagram.com/p/CshTQQlMGMl">
+    Instagram post or reel url : `https://www.instagram.com/p/CshTQQlMGMl` or `CshTQQlMGMl`
+</ParamField>
+
+### Response
+
+<ResponseField name="post" type="Post Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            Instagram post id
+        </ResponseField>
+        <ResponseField name="shortcode" type="string">
+            Instagram post shortcode
+        </ResponseField>
+        <ResponseField name="created_time" type="string">
+            Instagram post creation date
+        </ResponseField>
+        <ResponseField name="timestamp" type="integer">
+            Instagram post creation timestamp
+        </ResponseField>
+        <ResponseField name="product_type" type="string">
+            Instagram post product type : `clips` or other
+        </ResponseField>
+        <ResponseField name="text" type="string">
+            Instagram post text
+        </ResponseField>
+        <ResponseField name="text_lang" type="string">
+            Instagram post text language : `en` or `fr` or `es` or `de` or `it` or `pt` or `ru` or `ja` or `ko` or `zh-cn` or `zh-tw`
+        </ResponseField>
+        <ResponseField name="text_tags" type="array">
+            Instagram post hashtags
+        </ResponseField>
+        <ResponseField name="text_tagged_users" type="array">
+            <ResponseField name="id" type="string">
+                Instagram post tagged user id
+            </ResponseField>
+            <ResponseField name="username" type="string">
+                Instagram post tagged user username
+            </ResponseField>
+        </ResponseField>
+        <ResponseField name="attached_media_display_url" type="string">
+            Instagram post attached media display url
+        </ResponseField>
+        <ResponseField name="attached_media_tagged_users" type="array">
+            <ResponseField name="id" type="string">
+                Instagram post attached media tagged user id
+            </ResponseField>
+            <ResponseField name="username" type="string">
+                Instagram post attached media tagged user username
+            </ResponseField>
+        </ResponseField>
+        <ResponseField name="attached_carousel_media_urls" type="array">
+            Instagram post carousel media urls
+        </ResponseField>
+        <ResponseField name="is_video" type="boolean">
+            Instagram post is video
+        </ResponseField>
+        <ResponseField name="is_comments_disabled" type="boolean">
+            Instagram post is comments disabled
+        </ResponseField>
+        <ResponseField name="like_count" type="integer">
+            Instagram post like count
+        </ResponseField>
+        <ResponseField name="comments_count" type="integer">
+            Instagram post comments count
+        </ResponseField>
+        <ResponseField name="paid_partnership" type="boolean">
+            Instagram post is paid partnership
+        </ResponseField>
+        <ResponseField name="video_views_count" type="integer">
+            Instagram post video views count
+        </ResponseField>
+        <ResponseField name="video_plays_count" type="integer">
+            Instagram post video plays count
+        </ResponseField>
+        <ResponseField name="related_posts" type="array">
+            Instagram post related posts
+        </ResponseField>
+        <ResponseField name="sponsors" type="array">
+            Instagram post sponsors
+        </ResponseField>
+        <ResponseField name="owner_id" type="string">
+            Instagram post owner id
+        </ResponseField>
+        <ResponseField name="location_id" type="string">
+            Instagram post location id
+        </ResponseField>
+        <ResponseField name="location_name" type="string">
+            Instagram post location name
+        </ResponseField>
+        <ResponseField name="location_slug" type="string">
+            Instagram post location slug
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash mbappe post info
+curl --location --request GET 'https://piloterr.com/api/v2/instagram/post/info?query=https://www.instagram.com/p/CshTQQlMGMl' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json mbappe post info
+{
+    "id": "3107849898061488933",
+    "shortcode": "CshTQQlMGMl",
+    "created_time": "2023-05-21T21:30:00",
+    "timestamp": 1684704600,
+    "product_type": null,
+    "text": "🍿",
+    "text_lang": "en",
+    "text_tags": [],
+    "text_tagged_users": [],
+    "attached_media_display_url": "https://scontent-cdg4-1.cdninstagram.com/v/t51.2885-15/347861207_1707687973014484_3649610220149539376_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent-cdg4-1.cdninstagram.com&_nc_cat=1&_nc_ohc=G8iy_d-ikaUAX-wwvTR&edm=AP_V10EBAAAA&ccb=7-5&ig_cache_key=MzEwNzg0OTg5MzQzOTQ1OTQyNQ%3D%3D.2-ccb7-5&oh=00_AfDArVZ7v_YWl8SuGMmtefnvg9wXYv-vmpDtEFRmacAoNA&oe=64749AA1&_nc_sid=8721cf",
+    "attached_media_tagged_users": [],
+    "attached_carousel_media_urls": [
+        "https://scontent-cdg4-1.cdninstagram.com/v/t51.2885-15/347861207_1707687973014484_3649610220149539376_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent-cdg4-1.cdninstagram.com&_nc_cat=1&_nc_ohc=G8iy_d-ikaUAX-wwvTR&edm=AP_V10EBAAAA&ccb=7-5&ig_cache_key=MzEwNzg0OTg5MzQzOTQ1OTQyNQ%3D%3D.2-ccb7-5&oh=00_AfDArVZ7v_YWl8SuGMmtefnvg9wXYv-vmpDtEFRmacAoNA&oe=64749AA1&_nc_sid=8721cf",
+        "https://scontent-cdg4-2.cdninstagram.com/v/t51.2885-15/347832052_2243608469163355_4814444542687724291_n.jpg?stp=dst-jpg_e35_s1080x1080&_nc_ht=scontent-cdg4-2.cdninstagram.com&_nc_cat=107&_nc_ohc=wskXqCUKkPMAX_sjZlo&edm=AP_V10EBAAAA&ccb=7-5&ig_cache_key=MzEwNzg0OTg5MzQyMjU3Mzc5Ng%3D%3D.2-ccb7-5&oh=00_AfCVO6uoxjJeyGN22wHm3qKXO_mLlZi05pOyUBEy85uSUw&oe=64735A21&_nc_sid=8721cf"
+    ],
+    "is_video": false,
+    "is_comments_disabled": false,
+    "like_count": 2604768,
+    "comments_count": 11566,
+    "paid_partnership": false,
+    "video_views_count": null,
+    "video_plays_count": null,
+    "related_posts": null,
+    "sponsors": [],
+    "owner_id": "4213518589",
+    "location_id": "12345912",
+    "location_name": "Auxerre",
+    "location_slug": "auxerre"
+}
+```
+</ResponseExample>
