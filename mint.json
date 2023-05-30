@@ -175,7 +175,8 @@
             "v2/api-reference/stockx/product",
             "v2/api-reference/stockx/product_360",
             "v2/api-reference/stockx/product_activity",
-            "v2/api-reference/stockx/product_graph"
+            "v2/api-reference/stockx/product_graph",
+            "v2/api-reference/stockx/product_history"
           ]
         },
         "v2/api-reference/stockx/trends"
