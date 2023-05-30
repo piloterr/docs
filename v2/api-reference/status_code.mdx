@@ -1,0 +1,17 @@
+---
+title: Status Code
+description: "The following list of HTTP codes are returned by Piloterr."
+---
+
+
+| Code | Billed? | Meaning                  | Solution                                                                       |
+|------|---------|--------------------------|--------------------------------------------------------------------------------|
+| 200  | Yes     | Successful Call          |                                                                                |
+| 400  | No      | Bad request              | Incorrect parameters or parameters type. See the message in the response body. |
+| 404  | Yes     | Requested URL not found  | Provide a valid URL.                                                           |
+| 429  | No      | You've reached the limit | Please upgrade your plan or contact sales.                                     |
+| 500  | No      | Misc error               | Please retry, and see the message in the response body.                        |
+
+## HTTP Status Code 404
+
+Piloterr does not incur any charges for 404 errors related to the [Company Database](/v2/api-reference/database/company) access point. The integrity of the company database remains unaffected. A 404 error is returned when the requested URL cannot be found. This can happen if the URL is invalid or if the company is not present in the database.

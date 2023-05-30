@@ -57,6 +57,7 @@
       "group": "API Documentation",
       "pages": [
         "v2/api-reference/authentication",
+        "v2/api-reference/status_code",
         "v2/api-reference/usage"
       ]
     },
@@ -123,17 +124,6 @@
               "v2/api-reference/linkedin/job/search",
               "v2/api-reference/linkedin/job/info"
           ]
-        }
-      ]
-    },
-    {
-      "group": "Twitter",
-      "pages": [
-        {
-          "group": "User",
-            "pages": [
-                "v2/api-reference/twitter/user/info"
-            ]
         }
       ]
     },
