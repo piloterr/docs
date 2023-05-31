@@ -97,6 +97,12 @@
       ]
     },
     {
+      "group": "Wellfound",
+      "pages": [
+        "v2/api-reference/wellfound/company/info"
+      ]
+    },
+    {
       "group": "Linkedin",
       "pages": [
         {

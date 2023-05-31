@@ -1,0 +1,107 @@
+---
+title: "Wellfound Company Info"
+api: "GET https://piloterr.com/api/v2/wellfound/company/info"
+description: "Get company information from Wellfound"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://wellfound.com/company/dataiku">
+    A query to search for a company. It can be: **Wellfound URL** or **Wellfound slug**
+</ParamField>
+
+### Response
+
+<ResponseField name="company" type="Company Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            The company id
+        </ResponseField>
+        <ResponseField name="name" type="string">
+            The company name
+        </ResponseField>
+        <ResponseField name="logo" type="string">
+            The company logo
+        </ResponseField>
+        <ResponseField name="headline" type="string">
+            The company headline
+        </ResponseField>
+        <ResponseField name="description" type="string">
+            The company description
+        </ResponseField>
+        <ResponseField name="website" type="string">
+            The company website
+        </ResponseField>
+        <ResponseField name="company_size" type="string">
+            The company size
+        </ResponseField>
+        <ResponseField name="hiring" type="boolean">
+            The company hiring status
+        </ResponseField>
+        <ResponseField name="is_operating" type="boolean">
+            The company operating status
+        </ResponseField>
+        <ResponseField name="is_incubator" type="boolean">
+            The company incubator status
+        </ResponseField>
+        <ResponseField name="company_financials_highlights" type="object">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="funding_total" type="number">
+                    The company total funding
+                </ResponseField>
+                <ResponseField name="num_funding_rounds" type="number">
+                    The company number of funding rounds
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash dataiku
+curl --location --request GET 'https://piloterr.com/api/v2/wellfound/company/info?query=https://wellfound.com/company/dataiku' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json dataiku
+{
+    "id": "141418",
+    "name": "Dataiku",
+    "slug": "dataiku",
+    "logo": "https://photos.wellfound.com/startups/i/141418-1a571520061744ccd50545d59ed3ff93-medium_jpg.jpg?buster=1631710332",
+    "headline": "Everyday AI, Extraordinary People",
+    "description": "Dataiku is the platform for Everyday AI, systemizing the use of data for exceptional business results. By making the use of data and AI an everyday behavior, Dataiku unlocks the creativity within individual employees to power collective success at companies of all sizes and across all industries. \n\nDon’t get us wrong: we are a tech company building software. Our culture is even pretty geeky! But our driving force is and will always remain people, starting with ours. We consider our employees to be our most precious asset, and we are committed to ensuring that each of them gets the most rewarding, enjoyable, and memorable work experience with us. \n\nHeadquartered in New York City, Dataiku was founded in Paris in 2013 and achieved unicorn status in 2019. Now, more than 800 employees work across the globe in our offices and remotely. Backed by a renowned set of investors and partners including CapitalG, Tiger Global, and Serena, we’ve set out to build the future of AI. Let’s do it together! ",
+    "website": "http://www.dataiku.com/",
+    "company_size": null,
+    "hiring": true,
+    "is_operating": null,
+    "is_incubator": false,
+    "company_financials_highlights": {
+        "funding_total": 837290000,
+        "num_funding_rounds": 9
+    },
+    "social_networks": [
+        {
+            "name": "twitter",
+            "url": "http://twitter.com/dataiku"
+        },
+        {
+            "name": "facebook",
+            "url": "http://www.facebook.com/dataiku"
+        }
+    ]
+}
+```
+</ResponseExample>
