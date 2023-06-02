@@ -65,7 +65,8 @@
       "group": "Website",
       "pages": [
         "v2/api-reference/website/crawler_html",
-        "v2/api-reference/website/technology"
+        "v2/api-reference/website/technology",
+        "v2/api-reference/website/email_phone_extractor"
       ]
     },
     {

@@ -1,0 +1,109 @@
+---
+title: "Email Phone Extractor"
+api: "GET https://piloterr.com/api/v2/website/email_phone_extractor"
+description: "Email and phone extractor allows you to scrape any website for contact information. That's right - any website"
+---
+
+Enter a URL, and the crawler will begin to extract info and click on links (“a” anchors). These are some types of information that this contact details crawler can extract:
+
+- Email
+- Phone numbers
+- LinkedIn
+- Twitter
+- Instagram
+- Facebook
+- TikTok
+- Pinterest
+- Snapchat
+- YouTube
+- Reddit
+- Telegram
+- Crunchbase
+
+## Personal data and the legality of scraping contact information
+
+You should be aware that your results might contain personal data. Personal data is protected by GDPR in the European Union and by other regulations around the world. You should not scrape personal data unless you have a legitimate reason to do so. If you're unsure whether your reason is legitimate, consult your lawyers.
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://www.hexa.cc">
+    A website url with http(s) protocol
+</ParamField>
+
+### Response
+
+<RequestExample>
+
+```bash hexa.cc
+curl --location --request GET 'https://piloterr.com/api/v2/website/email_phone_extractor?query=https://www.hexa.cc' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+```bash airbus.com
+curl --location --request GET 'https://piloterr.com/api/v2/website/email_phone_extractor?query=https://www.airbus.com' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json hexa.cc
+{
+    "emails": [
+        "love@hexa.cc"
+    ],
+    "phone_numbers": [],
+    "linkedin_profiles": [
+        "https://www.linkedin.com/company/hexacc/"
+    ],
+    "twitter_profiles": [
+        "https://twitter.com/hexacc"
+    ],
+    "instagram_profiles": [
+        "https://www.instagram.com/hexa.cc/"
+    ],
+    "facebook_profiles": [],
+    "tiktok_profiles": [],
+    "pinterest_profiles": [],
+    "snapchat_profiles": [],
+    "youtube_channels": [],
+    "reddit_profiles": [],
+    "telegram_channels": [],
+    "crunchbase_profiles": []
+}
+```
+
+```json airbus.com
+{
+    "emails": [],
+    "phone_numbers": [],
+    "linkedin_profiles": [
+        "https://www.linkedin.com/company/airbusgroup"
+    ],
+    "twitter_profiles": [
+        "https://twitter.com/airbus"
+    ],
+    "instagram_profiles": [
+        "https://www.instagram.com/airbus"
+    ],
+    "facebook_profiles": [
+        "https://www.facebook.com/airbus"
+    ],
+    "tiktok_profiles": [],
+    "pinterest_profiles": [],
+    "snapchat_profiles": [],
+    "youtube_channels": [],
+    "reddit_profiles": [],
+    "telegram_channels": [],
+    "crunchbase_profiles": []
+}
+```
+</ResponseExample>
