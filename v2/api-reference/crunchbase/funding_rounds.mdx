@@ -1,0 +1,498 @@
+---
+title: "Crunchbase Funding Rounds"
+api: "GET https://piloterr.com/api/v2/crunchbase/funding_rounds"
+description: "Get funding rounds of companies from Crunchbase"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="days_since_announcement" type="integer" placeholder="30">
+    Parameter defines the number of days since the announcement of the funding round : `30`, `60`, `90`, `360`. Default value is `30`.
+</ParamField>
+
+<ParamField query="investment_type" type="string" placeholder="seed">
+    Parameter defines the type of the investment : `pre_seed`, `seed`, `series_a`, `series_b`, `series_c`, `series_d`, `series_e`, `series_f`, `series_g`, `series_h`, `series_i`, `series_j`, `series_unknown`, `angel`, `private_equity`, `debt_financing`, `convertible_note`, `grant`, `corporate_round`, `equity_crowdfunding`, `product_crowdfunding`, `secondary_market`, `post_ipo_equity`, `post_ipo_debt`, `post_ipo_secondary`, `non_equity_assistance`, `initial_coin_offering`, `undisclosed`.
+</ParamField>
+
+<ParamField query="investor_identifiers" type="string" placeholder="df14597c-3e51-8d58-9c15-fb3de3a34a54">
+    Parameter defines the UUID of the investor.
+</ParamField>
+
+### Response
+
+<ResponseField name="funding_rounds" type="Funding Rounds Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="total" type="integer">
+            Total number of funding rounds.
+        </ResponseField>
+        <ResponseField name="results" type="array">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="uuid" type="string">
+                    UUID of the funding round.
+                </ResponseField>
+                <ResponseField name="announced_on" type="string">
+                    Date of the announcement of the funding round.
+                </ResponseField>
+                <ResponseField name="money_raised" type="Money Raised Object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="value_usd" type="integer">
+                            Value of the money raised in USD.
+                        </ResponseField>
+                        <ResponseField name="currency" type="string">
+                            Currency of the money raised.
+                        </ResponseField>
+                        <ResponseField name="value" type="integer">
+                            Value of the money raised.
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="investment_type" type="string">
+                    Type of the investment.
+                </ResponseField>
+                <ResponseField name="identifier" type="Identifier Object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="permalink" type="string">
+                            Permalink of the funding round.
+                        </ResponseField>
+                        <ResponseField name="image_id" type="string">
+                            Image ID of the funding round.
+                        </ResponseField>
+                        <ResponseField name="uuid" type="string">
+                            UUID of the funding round.
+                        </ResponseField>
+                        <ResponseField name="entity_def_id" type="string">
+                            Entity definition ID of the funding round.
+                        </ResponseField>
+                        <ResponseField name="value" type="string">
+                            Value of the funding round.
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+                <ResponseField name="funded_organization_identifier" type="Funded Organization Identifier Object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="permalink" type="string">
+                            Permalink of the funded organization.
+                        </ResponseField>
+                        <ResponseField name="role" type="string">
+                            Role of the funded organization.
+                        </ResponseField>
+                        <ResponseField name="image_id" type="string">
+                            Image ID of the funded organization.
+                        </ResponseField>
+                        <ResponseField name="uuid" type="string">
+                            UUID of the funded organization.
+                        </ResponseField>
+                        <ResponseField name="entity_def_id" type="string">
+                            Entity definition ID of the funded organization.
+                        </ResponseField>
+                        <ResponseField name="value" type="string">
+                            Value of the funded organization.
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+
+<RequestExample>
+
+```bash funding rounds
+curl --location --request GET 'https://piloterr.com/api/v2/crunchbase/funding_rounds?days_since_announcement=30&investment_type=seed' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json openai
+{
+    "total": 768,
+    "results": [
+        {
+            "uuid": "904ada2b-accb-4077-a1b4-8c0bb13ad555",
+            "announced_on": "2023-06-13",
+            "money_raised": {
+                "value_usd": 113388724,
+                "currency": "EUR",
+                "value": 105000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "mistral-ai-seed--904ada2b",
+                "image_id": "fprzixdyu3vdq4am8wlh",
+                "uuid": "904ada2b-accb-4077-a1b4-8c0bb13ad555",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Mistral AI"
+            },
+            "funded_organization_identifier": {
+                "permalink": "mistral-ai",
+                "role": "investee",
+                "image_id": "fprzixdyu3vdq4am8wlh",
+                "uuid": "00e32424-3cc3-4798-8361-78914c212fb0",
+                "entity_def_id": "organization",
+                "value": "Mistral AI"
+            }
+        },
+        {
+            "uuid": "35b6a809-7dbf-418d-8f85-97e28795762b",
+            "announced_on": "2023-06-06",
+            "money_raised": {
+                "value_usd": 19000000,
+                "currency": "USD",
+                "value": 19000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "meanwhile-3fc0-seed--35b6a809",
+                "image_id": "mwib6vncrkeg9wyskwbe",
+                "uuid": "35b6a809-7dbf-418d-8f85-97e28795762b",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Meanwhile"
+            },
+            "funded_organization_identifier": {
+                "permalink": "meanwhile-3fc0",
+                "role": "investee",
+                "image_id": "mwib6vncrkeg9wyskwbe",
+                "uuid": "a895c1e5-9fa4-49ae-a2fb-0e8d0b923fc0",
+                "entity_def_id": "organization",
+                "value": "Meanwhile"
+            }
+        },
+        {
+            "uuid": "0b3b90f1-63e0-438f-bd57-3012753d0662",
+            "announced_on": "2023-06-07",
+            "money_raised": {
+                "value_usd": 14400000,
+                "currency": "USD",
+                "value": 14400000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "payrails-seed--0b3b90f1",
+                "image_id": "kdn0aapzmiyiheuhjzqq",
+                "uuid": "0b3b90f1-63e0-438f-bd57-3012753d0662",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Payrails"
+            },
+            "funded_organization_identifier": {
+                "permalink": "payrails",
+                "role": "investee",
+                "image_id": "kdn0aapzmiyiheuhjzqq",
+                "uuid": "2b50dc70-e24e-46bd-ae62-d4c5d169d96b",
+                "entity_def_id": "organization",
+                "value": "Payrails"
+            }
+        },
+        {
+            "uuid": "59de671b-bb37-414f-8fcd-500b95bbbdc5",
+            "announced_on": "2023-06-09",
+            "money_raised": {
+                "value_usd": 3650000,
+                "currency": "USD",
+                "value": 3650000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "termii-networks-seed--59de671b",
+                "image_id": "kbqf1muffdz6y2werkxp",
+                "uuid": "59de671b-bb37-414f-8fcd-500b95bbbdc5",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Termii"
+            },
+            "funded_organization_identifier": {
+                "permalink": "termii-networks",
+                "role": "investee",
+                "image_id": "kbqf1muffdz6y2werkxp",
+                "uuid": "1f07e865-4ce8-2275-6698-1f73ec946872",
+                "entity_def_id": "organization",
+                "value": "Termii"
+            }
+        },
+        {
+            "uuid": "c340e567-8889-4427-9f8d-92027adf8679",
+            "announced_on": "2023-06-06",
+            "money_raised": {
+                "value_usd": 10000000,
+                "currency": "USD",
+                "value": 10000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "argus-labs-f4d7-seed--c340e567",
+                "image_id": "qdhllw4o84cpahrfdakm",
+                "uuid": "c340e567-8889-4427-9f8d-92027adf8679",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Argus Labs"
+            },
+            "funded_organization_identifier": {
+                "permalink": "argus-labs-f4d7",
+                "role": "investee",
+                "image_id": "qdhllw4o84cpahrfdakm",
+                "uuid": "a86febca-30f5-4d13-8e63-edcd93d1f4d7",
+                "entity_def_id": "organization",
+                "value": "Argus Labs"
+            }
+        },
+        {
+            "uuid": "3d23d5b5-f086-48fa-9df8-8b51927b234b",
+            "announced_on": "2023-05-31",
+            "money_raised": {
+                "value_usd": 9000000,
+                "currency": "USD",
+                "value": 9000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "realta-fusion-seed--3d23d5b5",
+                "image_id": "u8gcha7uwble2wz4ifvd",
+                "uuid": "3d23d5b5-f086-48fa-9df8-8b51927b234b",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Realta Fusion"
+            },
+            "funded_organization_identifier": {
+                "permalink": "realta-fusion",
+                "role": "investee",
+                "image_id": "u8gcha7uwble2wz4ifvd",
+                "uuid": "011eadfb-e22a-4eca-9829-fb5a3ec1ea25",
+                "entity_def_id": "organization",
+                "value": "Realta Fusion"
+            }
+        },
+        {
+            "uuid": "ae910292-288c-4e47-8c56-5b2bcf7105b3",
+            "announced_on": "2023-06-07",
+            "money_raised": {
+                "value_usd": 20000000,
+                "currency": "USD",
+                "value": 20000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "contextual-ai-seed--ae910292",
+                "image_id": "blwywtqgkzbuavkvfjy3",
+                "uuid": "ae910292-288c-4e47-8c56-5b2bcf7105b3",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Contextual AI"
+            },
+            "funded_organization_identifier": {
+                "permalink": "contextual-ai",
+                "role": "investee",
+                "image_id": "blwywtqgkzbuavkvfjy3",
+                "uuid": "00aeb1c7-5343-4908-a7c4-e6b3b472a2f7",
+                "entity_def_id": "organization",
+                "value": "Contextual AI"
+            }
+        },
+        {
+            "uuid": "0dd4f54e-caf2-46da-bce0-82fdbedc28e9",
+            "announced_on": "2023-06-06",
+            "money_raised": {
+                "value_usd": 2674368,
+                "currency": "EUR",
+                "value": 2500000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "elba-fc93-seed--0dd4f54e",
+                "image_id": "aophcrhutqljeyjzghjp",
+                "uuid": "0dd4f54e-caf2-46da-bce0-82fdbedc28e9",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - elba"
+            },
+            "funded_organization_identifier": {
+                "permalink": "elba-fc93",
+                "role": "investee",
+                "image_id": "aophcrhutqljeyjzghjp",
+                "uuid": "eafb4c05-3470-4f8c-a642-3200decafc93",
+                "entity_def_id": "organization",
+                "value": "elba"
+            }
+        },
+        {
+            "uuid": "d9bb0644-9e35-4d61-b1cd-753d288586e9",
+            "announced_on": "2023-06-06",
+            "money_raised": {
+                "value_usd": 3851091,
+                "currency": "EUR",
+                "value": 3600000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "escape-b74e-seed--d9bb0644",
+                "image_id": "ihynb3lawmgzbvs5gzke",
+                "uuid": "d9bb0644-9e35-4d61-b1cd-753d288586e9",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Escape"
+            },
+            "funded_organization_identifier": {
+                "permalink": "escape-b74e",
+                "role": "investee",
+                "image_id": "ihynb3lawmgzbvs5gzke",
+                "uuid": "6ceea626-e866-44c7-992a-7c7b715fb74e",
+                "entity_def_id": "organization",
+                "value": "Escape"
+            }
+        },
+        {
+            "uuid": "18a33dda-e530-4b7d-87a7-b009f4b69e85",
+            "announced_on": "2023-05-31",
+            "money_raised": {
+                "value_usd": 5649167,
+                "currency": "INR",
+                "value": 467000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "newtrace-seed--18a33dda",
+                "image_id": "urqbrwlgtc9bqfvy8re8",
+                "uuid": "18a33dda-e530-4b7d-87a7-b009f4b69e85",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Newtrace"
+            },
+            "funded_organization_identifier": {
+                "permalink": "newtrace",
+                "role": "investee",
+                "image_id": "urqbrwlgtc9bqfvy8re8",
+                "uuid": "ffd0505b-9200-4347-9050-2ceac1ba76b0",
+                "entity_def_id": "organization",
+                "value": "Newtrace"
+            }
+        },
+        {
+            "uuid": "ff0cc0a4-117f-4063-919c-65ccdb382ae0",
+            "announced_on": "2023-06-08",
+            "money_raised": {
+                "value_usd": 15000000,
+                "currency": "USD",
+                "value": 15000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "lens-protocol-seed--ff0cc0a4",
+                "image_id": "ewu4e1aa8agfntz9hruj",
+                "uuid": "ff0cc0a4-117f-4063-919c-65ccdb382ae0",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Lens Protocol"
+            },
+            "funded_organization_identifier": {
+                "permalink": "lens-protocol",
+                "role": "investee",
+                "image_id": "ewu4e1aa8agfntz9hruj",
+                "uuid": "b33c11b0-0c49-47a4-89a8-7efc70c56eba",
+                "entity_def_id": "organization",
+                "value": "Lens Protocol"
+            }
+        },
+        {
+            "uuid": "8b567106-f9f5-47a3-a4a9-e305cba6ed49",
+            "announced_on": "2023-06-15",
+            "money_raised": {
+                "value_usd": 3245660,
+                "currency": "EUR",
+                "value": 3000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "trezy-seed--8b567106",
+                "image_id": "wthdlvlsbennc42cuxkl",
+                "uuid": "8b567106-f9f5-47a3-a4a9-e305cba6ed49",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Trezy"
+            },
+            "funded_organization_identifier": {
+                "permalink": "trezy",
+                "role": "investee",
+                "image_id": "wthdlvlsbennc42cuxkl",
+                "uuid": "c87a41e5-e6f3-4884-bef5-66e98c688d87",
+                "entity_def_id": "organization",
+                "value": "Trezy"
+            }
+        },
+        {
+            "uuid": "6bc5ced9-90ba-4317-b42e-288beb01b7a3",
+            "announced_on": "2023-06-14",
+            "money_raised": {
+                "value_usd": 1594975,
+                "currency": "INR",
+                "value": 131000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "taxnodes-seed--6bc5ced9",
+                "image_id": "o6qamio8g3xjyvp4fgrg",
+                "uuid": "6bc5ced9-90ba-4317-b42e-288beb01b7a3",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - TaxNodes"
+            },
+            "funded_organization_identifier": {
+                "permalink": "taxnodes",
+                "role": "investee",
+                "image_id": "o6qamio8g3xjyvp4fgrg",
+                "uuid": "7f22a2d2-296b-44c4-a550-b65ae845e361",
+                "entity_def_id": "organization",
+                "value": "TaxNodes"
+            }
+        },
+        {
+            "uuid": "06490d29-a799-4b7a-8325-3004b4469963",
+            "announced_on": "2023-06-08",
+            "money_raised": {
+                "value_usd": 3000000,
+                "currency": "USD",
+                "value": 3000000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "haul247-seed--06490d29",
+                "image_id": "mrfgvf0ptyqbqbd3pups",
+                "uuid": "06490d29-a799-4b7a-8325-3004b4469963",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - Haul247"
+            },
+            "funded_organization_identifier": {
+                "permalink": "haul247",
+                "role": "investee",
+                "image_id": "mrfgvf0ptyqbqbd3pups",
+                "uuid": "b1b29e49-34be-47a9-a902-70e04b08c382",
+                "entity_def_id": "organization",
+                "value": "Haul247"
+            }
+        },
+        {
+            "uuid": "65417071-f41a-4bdc-8f4a-e19c5f57f6b4",
+            "announced_on": "2023-06-12",
+            "money_raised": {
+                "value_usd": 3147358,
+                "currency": "GBP",
+                "value": 2500000
+            },
+            "investment_type": "seed",
+            "identifier": {
+                "permalink": "tem-9f9a-seed--65417071",
+                "image_id": "kgglsxrbuuapi9mxvvef",
+                "uuid": "65417071-f41a-4bdc-8f4a-e19c5f57f6b4",
+                "entity_def_id": "funding_round",
+                "value": "Seed Round - tem."
+            },
+            "funded_organization_identifier": {
+                "permalink": "tem-9f9a",
+                "role": "investee",
+                "image_id": "kgglsxrbuuapi9mxvvef",
+                "uuid": "191b6edf-92e8-4941-bf65-e1d356709f9a",
+                "entity_def_id": "organization",
+                "value": "tem."
+            }
+        }
+    ]
+}
+```
+</ResponseExample>

@@ -94,7 +94,8 @@
     {
       "group": "Crunchbase",
       "pages": [
-        "v2/api-reference/crunchbase/company/info"
+        "v2/api-reference/crunchbase/company/info",
+        "v2/api-reference/crunchbase/funding_rounds"
       ]
     },
     {
@@ -177,6 +178,12 @@
           ]
         },
         "v2/api-reference/stockx/trends"
+      ]
+    },
+    {
+      "group": "Kick",
+      "pages": [
+        "v2/api-reference/kick/user/info"
       ]
     }
   ],

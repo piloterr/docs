@@ -1,0 +1,329 @@
+---
+title: "Kick User Info"
+api: "GET https://piloterr.com/api/v2/kick/user/info"
+description: "Get Kick user info"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="https://kick.com/xqc">
+    Kick user url : `https://kick.com/xqc` or `xqc`
+</ParamField>
+
+### Response
+
+<ResponseField name="user" type="User Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            Kick user id
+        </ResponseField>
+        <ResponseField name="user_id" type="string">
+            Kick user id
+        </ResponseField>
+        <ResponseField name="slug" type="string">
+            Kick user slug
+        </ResponseField>
+        <ResponseField name="is_banned" type="boolean">
+            Kick user is banned
+        </ResponseField>
+        <ResponseField name="playback_url" type="string">
+            Kick user stream playback url
+        </ResponseField>
+        <ResponseField name="vod_enabled" type="boolean">
+            Kick user vod enabled
+        </ResponseField>
+        <ResponseField name="subscription_enabled" type="boolean">
+            Kick user subscription enabled
+        </ResponseField>
+        <ResponseField name="followers_count" type="number">
+            Kick user followers count
+        </ResponseField>
+        <ResponseField name="subscriber_badges" type="array">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="id" type="string">
+                    Kick user subscriber badge id
+                </ResponseField>
+                <ResponseField name="channel_id" type="string">
+                    Kick user subscriber badge channel id
+                </ResponseField>
+                <ResponseField name="months" type="number">
+                    Kick user subscriber badge months
+                </ResponseField>
+                <ResponseField name="badge_image" type="object">
+                    <Expandable title="properties" defaultOpen={true}>
+                        <ResponseField name="srcset" type="string">
+                            Kick user subscriber badge image srcset
+                        </ResponseField>
+                        <ResponseField name="src" type="string">
+                            Kick user subscriber badge image src
+                        </ResponseField>
+                    </Expandable>
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="banner_image" type="object">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="url" type="string">
+                    Kick user banner image src
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+        <ResponseField name="livestream" type="object">
+            Kick user livestream object
+        </ResponseField>
+        <ResponseField name="role" type="string">
+            Kick user role
+        </ResponseField>
+        <ResponseField name="muted" type="boolean">
+            Kick user muted
+        </ResponseField>
+        <ResponseField name="follower_badges" type="array">
+            Followers badges array
+        </ResponseField>
+        <ResponseField name="offline_banner_image" type="object">
+            Banner image object
+        </ResponseField>
+        <ResponseField name="verified" type="boolean">
+            Kick user verified
+        </ResponseField>
+        <ResponseField name="recent_categories" type="array">
+            Kick user recent categories
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash xqc user info
+curl --location --request GET 'https://piloterr.com/api/v2/kick/user/info?query=xqc' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json xqc user info
+{
+    "id": "668",
+    "user_id": 676,
+    "slug": "xqc",
+    "is_banned": false,
+    "playback_url": "https://fa723fc1b171.us-west-2.playback.live-video.net/api/video/v1/us-west-2.196233775518.channel.DsuAwCgUc9Bh.m3u8?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzM4NCJ9.eyJhd3M6Y2hhbm5lbC1hcm4iOiJhcm46YXdzOml2czp1cy13ZXN0LTI6MTk2MjMzNzc1NTE4OmNoYW5uZWwvRHN1QXdDZ1VjOUJoIiwiYXdzOmFjY2Vzcy1jb250cm9sLWFsbG93LW9yaWdpbiI6Imh0dHBzOi8va2ljay5jb20saHR0cDovL2xvY2FsaG9zdCxodHRwczovL2xvY2FsaG9zdCxodHRwOi8vbG9jYWxob3N0OjMwMDAsY2FwYWNpdG9yOi8vbG9jYWxob3N0LGh0dHBzOi8vYXBwLXN0Zy5raWNrLmNvbSxodHRwczovL3BsYXllci5raWNrLmNvbSIsImF3czpzdHJpY3Qtb3JpZ2luLWVuZm9yY2VtZW50IjpmYWxzZSwiZXhwIjoxNjg4MTE5NjExfQ.4Ipho7w3dvwt8uyrlJom6ZRM8iumRo1_KNoVQLzm0PtJG8edlC1RxKUNalRv1dGFBC6Uyv-ezA9Vi3RBcP_JXo1ESEhrnIDMwqz_mBuy2f-zN0EdPkpaCr1KBedVTV_1",
+    "vod_enabled": true,
+    "subscription_enabled": true,
+    "followers_count": 400975,
+    "subscriber_badges": [
+        {
+            "id": 97968,
+            "channel_id": 668,
+            "months": 1,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97968/original"
+            }
+        },
+        {
+            "id": 97975,
+            "channel_id": 668,
+            "months": 2,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97975/original"
+            }
+        },
+        {
+            "id": 97977,
+            "channel_id": 668,
+            "months": 3,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97977/original"
+            }
+        },
+        {
+            "id": 97978,
+            "channel_id": 668,
+            "months": 6,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97978/original"
+            }
+        },
+        {
+            "id": 97982,
+            "channel_id": 668,
+            "months": 9,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97982/original"
+            }
+        },
+        {
+            "id": 97985,
+            "channel_id": 668,
+            "months": 12,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97985/original"
+            }
+        },
+        {
+            "id": 97987,
+            "channel_id": 668,
+            "months": 18,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97987/original"
+            }
+        },
+        {
+            "id": 97988,
+            "channel_id": 668,
+            "months": 24,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97988/original"
+            }
+        },
+        {
+            "id": 97989,
+            "channel_id": 668,
+            "months": 30,
+            "badge_image": {
+                "srcset": "",
+                "src": "https://files.kick.com/channel_subscriber_badges/97989/original"
+            }
+        }
+    ],
+    "banner_image": {
+        "url": "https://files.kick.com/images/channel/668/banner_image/6fcf7418-df00-460b-9467-1fa95b8eb981"
+    },
+    "livestream": {
+        "id": 6567279,
+        "slug": "51852-my-first-stream",
+        "channel_id": 668,
+        "created_at": "2023-06-30 03:58:32",
+        "session_title": "🔴CLICK🔴CLICK🔴CLICK🔴JUICERLORD🔴ASAP🔴DRAMA GOD🔴WORLDWIDE RECORD HOLDER🔴IN EVERY GAME🔴WICKED INSANE🔴SKYFACTORY EPISODE 5 (THE BEST)🔴",
+        "is_live": true,
+        "risk_level_id": null,
+        "source": null,
+        "twitch_channel": null,
+        "duration": 0,
+        "language": "English",
+        "is_mature": false,
+        "viewer_count": 28621,
+        "thumbnail": {
+            "url": "https://stream.kick.com/thumbnails/livestream/6567279/thumb1/video_thumbnail/thumb1.jpg"
+        },
+        "categories": [
+            {
+                "id": 10,
+                "category_id": 1,
+                "name": "Minecraft",
+                "slug": "minecraft",
+                "tags": [
+                    "Adventure",
+                    "MMO",
+                    "Survival",
+                    "Open World"
+                ],
+                "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items. Some activities in the game include mining for ore, fighting hostile mobs, and crafting new blocks and tools by gathering various resources found in the game. The game's open-ended model allows players to create structures, creations, and artwork on various multiplayer servers or their single-player maps. Other features include redstone circuits for logic computations and remote actions, minecarts and tracks, and a mysterious underworld called the Nether. A designated but completely optional goal of the game is to travel to a dimension called the End, and defeat the ender dragon.",
+                "deleted_at": null,
+                "viewers": 29083,
+                "category": {
+                    "id": 1,
+                    "name": "Games",
+                    "slug": "games",
+                    "icon": "🕹️"
+                }
+            }
+        ],
+        "tags": []
+    },
+    "role": null,
+    "muted": false,
+    "follower_badges": [],
+    "offline_banner_image": null,
+    "verified": true,
+    "recent_categories": [
+        {
+            "id": 10,
+            "category_id": 1,
+            "name": "Minecraft",
+            "slug": "minecraft",
+            "tags": [
+                "Adventure",
+                "MMO",
+                "Survival",
+                "Open World"
+            ],
+            "description": "Minecraft focuses on allowing the player to explore, interact with, and modify a dynamically-generated map made of one-cubic-meter-sized blocks. In addition to blocks, the environment features plants, mobs, and items. Some activities in the game include mining for ore, fighting hostile mobs, and crafting new blocks and tools by gathering various resources found in the game. The game's open-ended model allows players to create structures, creations, and artwork on various multiplayer servers or their single-player maps. Other features include redstone circuits for logic computations and remote actions, minecarts and tracks, and a mysterious underworld called the Nether. A designated but completely optional goal of the game is to travel to a dimension called the End, and defeat the ender dragon.",
+            "deleted_at": null,
+            "viewers": 29083,
+            "banner": {
+                "responsive": "https://files.kick.com/images/subcategories/77/banner/responsives/...",
+                "url": "https://files.kick.com/images/subcategories/10/banner/0ca345bb-59db-48b2-bd2f-df88f55e4cc6"
+            },
+            "category": {
+                "id": 1,
+                "name": "Games",
+                "slug": "games",
+                "icon": "🕹️"
+            }
+        },
+        {
+            "id": 15,
+            "category_id": 2,
+            "name": "Just Chatting",
+            "slug": "just-chatting",
+            "tags": [
+                "IRL"
+            ],
+            "description": null,
+            "deleted_at": null,
+            "viewers": 16046,
+            "banner": {
+                "responsive": "https://files.kick.com/images/subcategories/77/banner/responsives/...",
+                "url": "https://files.kick.com/images/subcategories/15/banner/8f43401b-0d59-4802-8f70-cd5e259adc9b"
+            },
+            "category": {
+                "id": 2,
+                "name": "IRL",
+                "slug": "irl",
+                "icon": "🎙️"
+            }
+        },
+        {
+            "id": 77,
+            "category_id": 1,
+            "name": "Rocket League",
+            "slug": "rocket-league",
+            "tags": [
+                "sports",
+                "action"
+            ],
+            "description": null,
+            "deleted_at": null,
+            "viewers": 217,
+            "banner": {
+                "responsive": "https://files.kick.com/images/subcategories/77/banner/responsives/...",
+                "url": "https://files.kick.com/images/subcategories/77/banner/a0d9cc7e-626d-4020-b1ca-2bc02308de2d"
+            },
+            "category": {
+                "id": 1,
+                "name": "Games",
+                "slug": "games",
+                "icon": "🕹️"
+            }
+        }
+    ]
+}
+```
+</ResponseExample>
