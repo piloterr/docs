@@ -1,0 +1,81 @@
+---
+title: "Threads User Info"
+api: "GET https://piloterr.com/api/v2/threads/user/info"
+description: "Get Threads user info"
+---
+
+### Header
+
+<ParamField header="x-api-key" type="string" required={true}>
+    Parameter defines the Piloterr private key to use.
+</ParamField>
+
+### Parameters
+
+<ParamField query="query" type="string" optional={false} placeholder="zuck">
+    Threads user url or slug : `https://www.threads.net/@zuck` or `zuck`
+</ParamField>
+
+<ParamField query="user_id" type="string" optional={false} placeholder="314216">
+    Threads user id : `314216`
+</ParamField>
+
+### Response
+
+<ResponseField name="user" type="User Object">
+    <Expandable title="properties" defaultOpen={true}>
+        <ResponseField name="id" type="string">
+            Threads user id
+        </ResponseField>
+        <ResponseField name="username" type="string">
+            Threads user username
+        </ResponseField>
+        <ResponseField name="full_name" type="string">
+            Threads user full name
+        </ResponseField>
+        <ResponseField name="follower_count" type="number">
+            Threads user follower count
+        </ResponseField>
+        <ResponseField name="profile_pic_url" type="string">
+            Threads user profile picture url
+        </ResponseField>
+        <ResponseField name="biography" type="string">
+            Threads user biography
+        </ResponseField>
+        <ResponseField name="bio_links" type="array">
+            <Expandable title="properties" defaultOpen={true}>
+                <ResponseField name="url" type="string">
+                    Threads user biography link url
+                </ResponseField>
+            </Expandable>
+        </ResponseField>
+    </Expandable>
+</ResponseField>
+
+<RequestExample>
+
+```bash zuck user info
+curl --location --request GET 'https://piloterr.com/api/v2/threads/user/info?query=zuck' \
+--header 'Content-Type: application/json' \
+--header 'x-api-key: <token>' \
+```
+
+</RequestExample>
+
+<ResponseExample>
+```json zuck user info
+{
+    "id": "314216",
+    "username": "zuck",
+    "full_name": "Mark Zuckerberg",
+    "follower_count": 1965814,
+    "profile_pic_url": "https://scontent.cdninstagram.com/v/t51.2885-19/357376107_1330597350674698_8884059223384672080_n.jpg?stp=dst-jpg_s150x150&_nc_ht=scontent.cdninstagram.com&_nc_cat=1&_nc_ohc=9PG1NK-L8OkAX8oyFfD&edm=APs17CUBAAAA&ccb=7-5&oh=00_AfDDMHFu9ZAVQisupQiH-HSV3dh8X9As3veCSMMsRg_JgA&oe=64ACDDC0&_nc_sid=10d13b",
+    "biography": "",
+    "bio_links": [
+        {
+            "url": ""
+        }
+    ]
+}
+```
+</ResponseExample>

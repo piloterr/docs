@@ -147,6 +147,18 @@
       ]
     },
     {
+      "group": "Threads (beta)",
+      "pages": [
+        {
+          "group": "User",
+          "pages": [
+            "v2/api-reference/threads/user/info",
+            "v2/api-reference/threads/user/threads"
+          ]
+        }
+      ]
+    },
+    {
       "group": "Instagram",
       "pages": [
         {
